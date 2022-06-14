@@ -172,8 +172,8 @@ def warning():
   thunderstorm_df = grab_signal(thunderstorm_url, thunderstorm_col)
 
 
-  ds=Start_Date+Start_Time
-  de=End_Date+End_Time
+  ds=datetime.combine(Start_Date,Start_Time)
+  de=datetime.combine(End_Date,End_Time)
 
   warning_string=""
   
