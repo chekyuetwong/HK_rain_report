@@ -1,5 +1,6 @@
 import streamlit as st
 import os, sys
+from tide import tide
 
 @st.cache
 def installff():
@@ -65,7 +66,7 @@ def tide_data(station):
 
   except:
     print("Error encountered. The plot for "+station+" was unsuccessful.")
-
+"""
 def tide():
   Title = "Measured Tide Levels"
   st.title(Title)
@@ -111,7 +112,7 @@ def tide():
   #plt.savefig(filename, bbox_inches='tight')
   #plt.show()
   st.pyplot(fig)
-
+"""
 def home_page():
   st.markdown("""# Welcome to this App
   This is a web app under alpha testing regarding Hong Kong weather.
