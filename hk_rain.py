@@ -113,7 +113,9 @@ def tide():
   st.pyplot(fig)
 
 def home_page():
-  st.markdown("###Welcome to this App")
+  st.markdown("""# Welcome to this App
+  This is a web app under alpha testing regarding Hong Kong weather.
+  """)
 
 to_func = {
   "-": home_page,
