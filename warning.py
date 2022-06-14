@@ -120,8 +120,7 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
   for xy in zip(x1, end): 
     plt.annotate(t1[j], xy=xy, textcoords='data', fontsize=10)
     j+=1
-  plt.annotate(sname, xy=(pos, de), textcoords='data', fontsize=10, ha='center', bbox=dict(fc="white"))
-  #print(pos, de)
+  plt.annotate(sname, xy=(pos, ee), textcoords='data', fontsize=10, ha='center', bbox=dict(fc="white"))
 
 def warning():
   st.write("""# Weather Warning Signal Timeline
