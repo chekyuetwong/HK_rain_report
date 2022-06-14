@@ -4,6 +4,4 @@ streamlit
 selenium
 seleniumbase
 bs4
-time
 matplotlib
-datetime
