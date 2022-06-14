@@ -113,12 +113,12 @@ def tide():
   st.pyplot(fig)
 
 def home_page():
-  st.write("###Welcome to this App")
+  st.markdown("###Welcome to this App")
 
 to_func = {
   "-": home_page,
   "Tide": tide
 }
 
-demo_name = st.sidebar.selectbox("Choose a page", to_func.keys())
+demo_name = st.sidebar.selectbox("Page Select", to_func.keys())
 to_func[demo_name]()
