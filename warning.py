@@ -7,6 +7,7 @@ opts.add_argument("--headless")
 import matplotlib.pyplot as plt
 import pandas as pd
 from bs4 import BeautifulSoup
+import time
 
 import matplotlib.dates as mdates
 from datetime import datetime
