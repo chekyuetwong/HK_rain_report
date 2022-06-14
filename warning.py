@@ -8,11 +8,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from bs4 import BeautifulSoup
 import time
-import datetime
 import matplotlib.dates as mdates
 from datetime import datetime
 year = datetime.now().year
 month = datetime.now().month
+default_time1 = datetime.time(0,0)
+default_time2 = datetime.time(23,59)
 
 import requests
 import pandas as pd
@@ -129,10 +130,10 @@ def warning():
   Title = "Event Timeline"
 
   Start_Date = st.date_input("Start Date")
-  Start_Time = st.time_input('Start Time', datetime.time(0,0))
+  Start_Time = st.time_input('Start Time', default_time1)
 
   End_Date = st.date_input("End Date")
-  End_Time = st.time_input('End Time', datetime.time(23,59))
+  End_Time = st.time_input('End Time',  default_time2)
   Image_Height = st.slider('Image Height', 5, 30, 10)
   st.write("""#Timeline Customisation
   """)
