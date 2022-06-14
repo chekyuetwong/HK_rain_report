@@ -7,7 +7,7 @@ opts.add_argument("--headless")
 import matplotlib.pyplot as plt
 import pandas as pd
 from bs4 import BeautifulSoup
-import time
+
 import matplotlib.dates as mdates
 from datetime import datetime
 
@@ -19,7 +19,7 @@ from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
-import time
+from datetime import time
 
 
 def grab_signal(url, c_name, from_row=4):
@@ -120,8 +120,8 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
   plt.annotate(sname, xy=(pos, ee), textcoords='data', fontsize=10, ha='center', bbox=dict(fc="white"))
 
 def warning():
-  default_time1 = datetime.time(0,0)
-  default_time2 = datetime.time(23,59)
+  default_time1 = time(0,0)
+  default_time2 = time(23,59)
   st.write("""# Weather Warning Signal Timeline
   ---
   """)
