@@ -20,7 +20,7 @@ from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
-from datetime import time
+from datetime import time as tm
 
 
 def grab_signal(url, c_name, from_row=4):
@@ -121,8 +121,8 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
   plt.annotate(sname, xy=(pos, ee), textcoords='data', fontsize=10, ha='center', bbox=dict(fc="white"))
 
 def warning():
-  default_time1 = time(0,0)
-  default_time2 = time(23,59)
+  default_time1 = tm(0,0)
+  default_time2 = tm(23,59)
   st.write("""# Weather Warning Signal Timeline
   ---
   """)
