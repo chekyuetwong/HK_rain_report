@@ -28,8 +28,6 @@ def hko_table_csv(url):
     driver.close() # closing the webdriver
     return data
 
-
-
 @st.cache
 def tide_data(station):
   station=str(station)
