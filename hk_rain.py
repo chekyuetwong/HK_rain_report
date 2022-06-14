@@ -19,10 +19,10 @@ st.title("Measured Tide Levels")
 
 Initialisation = True
 Download = True
-Quarry_Bay = st.checkbox('Quarry Bay')
-Tai_Po_Kau = st.checkbox('Tai Po Kau')
-Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui')
-Tai_O = st.checkbox('Tai O')
+Quarry_Bay = st.checkbox('Quarry Bay', value=True)
+Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
+Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui', value=True)
+Tai_O = st.checkbox('Tai O', value=True)
 
 from datetime import datetime
 year = datetime.now().year
