@@ -15,16 +15,6 @@ opts.add_argument("--headless")
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-Title = "Measured Tide Levels"
-st.title(Title)
-
-Initialisation = True
-Download = True
-Quarry_Bay = st.checkbox('Quarry Bay', value=True)
-Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
-Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui', value=True)
-Tai_O = st.checkbox('Tai O', value=True)
-
 from datetime import datetime
 year = datetime.now().year
 month = datetime.now().month
@@ -76,38 +66,59 @@ def tide_data(station):
   except:
     print("Error encountered. The plot for "+station+" was unsuccessful.")
 
+def tide():
+  Title = "Measured Tide Levels"
+  st.title(Title)
 
-fig = plt.figure(figsize=[15,5])
-ax = fig.add_subplot(1,1,1)
+  Initialisation = True
+  Download = True
+  Quarry_Bay = st.checkbox('Quarry Bay', value=True)
+  Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
+  Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui', value=True)
+  Tai_O = st.checkbox('Tai O', value=True)
 
-if Quarry_Bay:
-  QUB=tide_data("QUB")
-  plt.plot(QUB.index, QUB["Measured"], label="Quarry Bay")
+  fig = plt.figure(figsize=[15,5])
+  ax = fig.add_subplot(1,1,1)
 
-if Tai_Po_Kau:
-  TPK=tide_data("TPK")
-  plt.plot(TPK.index, TPK["Measured"], label="Tai Po Kau")
+  if Quarry_Bay:
+    QUB=tide_data("QUB")
+    plt.plot(QUB.index, QUB["Measured"], label="Quarry Bay")
 
-if Tsim_Bei_Tsui:
-  TBT=tide_data("TBT")
-  plt.plot(TBT.index, TBT["Measured"], label="Tsim Bei Tsui")
-if Tai_O:
-  TAO=tide_data("TAO")
-  plt.plot(TAO.index, TAO["Measured"], label="Tai O")
+  if Tai_Po_Kau:
+    TPK=tide_data("TPK")
+    plt.plot(TPK.index, TPK["Measured"], label="Tai Po Kau")
 
-hours = mdates.HourLocator(interval = 3)
-h_fmt = mdates.DateFormatter('%Y-%m-%d %H:%M')
-ax.set_title(Title, size=20)
-ax.xaxis.set_major_locator(hours)
-ax.xaxis.set_major_formatter(h_fmt)
-ax.grid()
-ax.set_ylabel("Tide Level (mCD)")
+  if Tsim_Bei_Tsui:
+    TBT=tide_data("TBT")
+    plt.plot(TBT.index, TBT["Measured"], label="Tsim Bei Tsui")
+  if Tai_O:
+    TAO=tide_data("TAO")
+    plt.plot(TAO.index, TAO["Measured"], label="Tai O")
 
-fig.autofmt_xdate()
+  hours = mdates.HourLocator(interval = 3)
+  h_fmt = mdates.DateFormatter('%Y-%m-%d %H:%M')
+  ax.set_title(Title, size=20)
+  ax.xaxis.set_major_locator(hours)
+  ax.xaxis.set_major_formatter(h_fmt)
+  ax.grid()
+  ax.set_ylabel("Tide Level (mCD)")
 
-plt.legend()
-#timestamp=max(QUB.index).strftime("%Y-%m-%d_%H-%M")
-filename = Title+".png"
-#plt.savefig(filename, bbox_inches='tight')
-#plt.show()
-st.pyplot(fig)
+  fig.autofmt_xdate()
+
+  plt.legend()
+  #timestamp=max(QUB.index).strftime("%Y-%m-%d_%H-%M")
+  filename = Title+".png"
+  #plt.savefig(filename, bbox_inches='tight')
+  #plt.show()
+  st.pyplot(fig)
+
+def home_page():
+  st.write("###Welcome to this App")
+
+to_func = {
+  "-": home_page
+  "Tide": tide
+}
+
+demo_name = st.sidebar.selectbox("Choose a page", to_func.keys())
+to_func[demo_name]()
