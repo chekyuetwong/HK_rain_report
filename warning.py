@@ -74,11 +74,11 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
   if plot_df.iloc[0, :].loc["Start"]<ss:
     print("Alert: \n{} Signal started at {}. \nAdjust the time to show the entire alert.\n".format(sname, plot_df.iloc[0, :].loc["Start"]))
     tag=datetime.strftime(plot_df.iloc[0, :].loc["Start"], "%H:%M")+"\n⟱"
-    plt.annotate(tag, xy=(pos, ds), textcoords='data', fontsize=8, ha='center')
+    plt.annotate(tag, xy=(pos, ss), textcoords='data', fontsize=8, ha='center')
   if plot_df.iloc[-1, :].loc["End"]>ee:
     print("Alert: \n{} Signal ended at {}. \nAdjust the time to show the entire alert.\n".format(sname, plot_df.iloc[-1, :].loc["End"]))
     tag="⟱\n"+datetime.strftime(plot_df.iloc[-1, :].loc["End"], "%H:%M")
-    plt.annotate(tag, xy=(pos, ds+0.95*(de-ds)), textcoords='data', fontsize=8, ha='center', color='white')
+    plt.annotate(tag, xy=(pos, ss+0.95*(ee-ss)), textcoords='data', fontsize=8, ha='center', color='white')
   plot_df = plot_df.set_index("Start")
 
   begin = plot_df.index
