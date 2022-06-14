@@ -10,10 +10,7 @@ from bs4 import BeautifulSoup
 import time
 import matplotlib.dates as mdates
 from datetime import datetime
-year = datetime.now().year
-month = datetime.now().month
-default_time1 = datetime.time(0,0)
-default_time2 = datetime.time(23,59)
+
 
 import requests
 import pandas as pd
@@ -123,6 +120,8 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
   plt.annotate(sname, xy=(pos, ee), textcoords='data', fontsize=10, ha='center', bbox=dict(fc="white"))
 
 def warning():
+  default_time1 = datetime.time(0,0)
+  default_time2 = datetime.time(23,59)
   st.write("""# Weather Warning Signal Timeline
   ---
   """)
