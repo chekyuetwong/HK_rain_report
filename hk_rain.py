@@ -15,7 +15,8 @@ opts.add_argument("--headless")
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-st.title("Measured Tide Levels")
+Title = "Measured Tide Levels"
+st.title(Title)
 
 Initialisation = True
 Download = True
