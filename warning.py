@@ -154,7 +154,11 @@ def warning():
   Thunderstorm = pos_map(Thunderstorm)
   Landslip = pos_map(Landslip)
   Tropical_Cyclone = pos_map(Tropical_Cyclone)
-
+  st.write(Rainstorm)
+  st.write(SAFNNT)
+  st.write(Thunderstorm)
+  st.write(Landslip)
+  st.write(Tropical_Cyclone)
 
 
   rainstorm_url = "https://www.hko.gov.hk/en/wxinfo/climat/warndb/warndb3.shtml?opt=3&rcolor=All+colours&start_ym=199803&end_ym=%04d%02d&submit=Submit+Query"%(year, month)
