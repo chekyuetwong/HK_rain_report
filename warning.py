@@ -135,7 +135,7 @@ def warning():
 
   End_Date = st.date_input("End Date")
   End_Time = st.time_input('End Time')
-  Image_Height = st.slider('How old are you?', 5, 30, 10)5
+  Image_Height = st.slider('How old are you?', 5, 30, 10)
   st.write("""#Timeline Customisation
   """)
 
