@@ -35,6 +35,7 @@ import time
 
 import matplotlib.dates as mdates
 
+@st.cache
 def hko_table_csv(url):
     driver = webdriver.Firefox(options=opts)
     driver.get(url)
@@ -52,6 +53,7 @@ def hko_table_csv(url):
     driver.close() # closing the webdriver
     return data
 
+@st.cache
 def tide_data(station):
   station=str(station)
   try: 
