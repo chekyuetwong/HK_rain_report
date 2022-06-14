@@ -1,4 +1,5 @@
-from tide import tide#, hko_table_csv, tide_data
+from tide import tide
+from warning import warning
 import streamlit as st
 import os, sys
 from selenium import webdriver
@@ -25,7 +26,8 @@ def home_page():
 
 to_func = {
   "Home": home_page,
-  "Tide": tide
+  "Tide": tide,
+  "Warning Timeline":warning
 }
 
 _ = installff()
