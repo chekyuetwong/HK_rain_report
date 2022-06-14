@@ -144,6 +144,11 @@ def warning():
   Landslip = st.selectbox("Landslip", (0,1,2,3,4,5), 4)
   Thunderstorm = st.selectbox("Thunderstorm", (0,1,2,3,4,5), 5)
 
+  ds=datetime.combine(Start_Date,Start_Time)
+  de=datetime.combine(End_Date,End_Time)
+  st.write(ds)
+  st.write(de)
+
   Rainstorm = pos_map(Rainstorm)
   SAFNNT = pos_map(SAFNNT)
   Thunderstorm = pos_map(Thunderstorm)
@@ -169,12 +174,6 @@ def warning():
   safnnt_df = grab_signal(safnnt_url, safnnt_col)
   landslip_df = grab_signal(landslip_url, landslip_col)
   thunderstorm_df = grab_signal(thunderstorm_url, thunderstorm_col)
-
-
-  ds=datetime.combine(Start_Date,Start_Time)
-  de=datetime.combine(End_Date,End_Time)
-  st.write(ds)
-  st.write(de)
 
   warning_string=""
   
