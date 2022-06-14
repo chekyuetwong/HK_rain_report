@@ -116,7 +116,7 @@ def home_page():
   st.write("###Welcome to this App")
 
 to_func = {
-  "-": home_page
+  "-": home_page,
   "Tide": tide
 }
 
