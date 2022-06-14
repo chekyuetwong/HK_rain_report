@@ -127,7 +127,7 @@ def warning():
   ---
   """)
 
-  Title = "Event Timeline"
+  Title = st.text_input("Timeline Title", "Event Timeline")
 
   Start_Date = st.date_input("Start Date")
   Start_Time = st.time_input('Start Time', default_time1)
