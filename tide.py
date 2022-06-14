@@ -1,5 +1,8 @@
 import streamlit as st
 import os, sys
+import pandas as pd
+import matplotlib.pyplot as plt
+
 
 def tide():
   Title = "Measured Tide Levels"
