@@ -130,10 +130,10 @@ def warning():
   Title = "Event Timeline"
 
   Start_Date = st.date_input("Start Date")
-  Start_Time = st.time_input('Start Time')
+  Start_Time = st.time_input('Start Time', datetime.time(0,0))
 
   End_Date = st.date_input("End Date")
-  End_Time = st.time_input('End Time')
+  End_Time = st.time_input('End Time', datetime.time(23,59))
   Image_Height = st.slider('Image Height', 5, 30, 10)
   st.write("""#Timeline Customisation
   """)
@@ -173,10 +173,15 @@ def warning():
   tc_col = ['intensity','name','signal', 'stime', 'sdate', 'etime','edate', 'duration']
   thunderstorm_col = safnnt_col
 
+  @st.cache
   rainstorm_df = grab_signal(rainstorm_url, rainstorm_col)
+  @st.cache
   tc_df = grab_signal(tc_url, tc_col, 5)
+  @st.cache
   safnnt_df = grab_signal(safnnt_url, safnnt_col)
+  @st.cache
   landslip_df = grab_signal(landslip_url, landslip_col)
+  @st.cache
   thunderstorm_df = grab_signal(thunderstorm_url, thunderstorm_col)
 
   warning_string=""
