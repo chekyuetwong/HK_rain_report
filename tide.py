@@ -1,8 +1,47 @@
-import streamlit as st
-import os, sys
-import pandas as pd
-import matplotlib.pyplot as plt
 
+
+@st.cache
+def hko_table_csv(url):
+    driver = webdriver.Firefox(options=opts)
+    driver.get(url)
+    time.sleep(5)
+    html = driver.page_source
+    soup = BeautifulSoup(html, "html.parser")
+    mainc = soup.find(id='mainContent')
+    rows = mainc.find_all('tr')
+    data=[]
+    for row in rows:
+        cols = row.find_all('td')
+        cols = [ele.text.strip() for ele in cols]
+        data.append([ele for ele in cols if ele]) # Get rid of empty values
+
+    driver.close() # closing the webdriver
+    return data
+
+
+
+@st.cache
+def tide_data(station):
+  station=str(station)
+  try: 
+    URL="https://www.hko.gov.hk/en/tide/marine/realtide.htm?s="+station+"&t=TABLE"
+    print("Updated data retrieved from: ", URL)
+    data = hko_table_csv(URL)
+    df = pd.DataFrame(data)
+    df1 = df.iloc[8:, 0:3]
+
+    df1.columns=["Date", "Measured", "Predicted"]
+    df1=df1.set_index("Date")
+    df1.index = pd.to_datetime(df1.index)
+    #df1.to_csv(fp("test_for_today"))
+
+    df1["Measured"] = pd.to_numeric(df1["Measured"], errors='coerce')
+    df1["Predicted"]=pd.to_numeric(df1["Predicted"], errors='coerce')
+    #print(df1)
+    return df1
+
+  except:
+    print("Error encountered. The plot for "+station+" was unsuccessful.")
 
 def tide():
   Title = "Measured Tide Levels"
