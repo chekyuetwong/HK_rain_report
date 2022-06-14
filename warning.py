@@ -158,7 +158,9 @@ def warning():
   st.write(Thunderstorm)
   st.write(Landslip)
   st.write(Tropical_Cyclone)
-
+  
+  year = datetime.now().year
+  month = datetime.now().month
 
   rainstorm_url = "https://www.hko.gov.hk/en/wxinfo/climat/warndb/warndb3.shtml?opt=3&rcolor=All+colours&start_ym=199803&end_ym=%04d%02d&submit=Submit+Query"%(year, month)
   safnnt_url = "https://www.hko.gov.hk/en/wxinfo/climat/warndb/warndb11.shtml?opt=11&start_ym=199803&end_ym=%04d%02d&submit=Submit+Query"%(year, month)
