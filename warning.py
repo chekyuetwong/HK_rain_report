@@ -135,7 +135,7 @@ def warning():
 
   End_Date = st.date_input("End Date")
   End_Time = st.time_input('End Time')
-  Image_Height = st.slider('How old are you?', 5, 30, 10)
+  Image_Height = st.slider('Image Height', 5, 30, 10)
   st.write("""#Timeline Customisation
   """)
 
@@ -172,8 +172,8 @@ def warning():
   thunderstorm_df = grab_signal(thunderstorm_url, thunderstorm_col)
 
 
-  ds=datetime.strptime(Start_Date+" "+Start_Time, "%Y-%m-%d %H:%M")
-  de=datetime.strptime(End_Date+" "+End_Time, "%Y-%m-%d %H:%M")
+  ds=Start_Date+Start_Time
+  de=End_Date+End_Time
 
   warning_string=""
   
