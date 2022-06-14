@@ -124,7 +124,6 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
   #print(pos, de)
 
 def warning():
-  
   st.write("""# Weather Warning Signal Timeline
   ---
   """)
