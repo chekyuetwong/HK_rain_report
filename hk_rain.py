@@ -11,23 +11,18 @@ from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
-browser = webdriver.Firefox(options=opts)
-
-browser.get('http://example.com')
-st.write(browser.page_source)
-
 
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-Title = "Measured Tide Levels"
+st.title("Measured Tide Levels")
 
 Initialisation = True
 Download = True
-Quarry_Bay = True 
-Tai_Po_Kau = True
-Tsim_Bei_Tsui = True
-Tai_O = True
+Quarry_Bay = st.checkbox('Quarry Bay')
+Tai_Po_Kau = st.checkbox('Tai Po Kau')
+Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui')
+Tai_O = st.checkbox('Tai O')
 
 from datetime import datetime
 year = datetime.now().year
@@ -111,5 +106,5 @@ plt.legend()
 timestamp=max(QUB.index).strftime("%Y-%m-%d_%H-%M")
 filename = Title+".png"
 #plt.savefig(filename, bbox_inches='tight')
-plt.show()
+#plt.show()
 st.pyplot(fig)
