@@ -173,6 +173,8 @@ def warning():
 
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)
+  st.write(ds)
+  st.write(de)
 
   warning_string=""
   
@@ -212,12 +214,10 @@ def warning():
   ax.spines['right'].set_visible(False)
   ax.spines['bottom'].set_visible(False)
   ax.spines['left'].set_visible(False)
-  #plt.xticks([Rainstorm, SAFNNT, Thunderstorm, Landslip, Tropical_Cyclone], labels=["Rainstorm", "SAFNNT", "Thunderstorm", "Landslip", "Tropical\nCyclone"])
   plt.xticks([])
   ax.grid(axis='x')
   plt.annotate('', xy=(-2, ds), xytext=(-2, de), arrowprops=dict(arrowstyle='<|-,head_length=5,head_width=0.5', color='black', lw=5))
   ax.set_ylim(de, ds)
-
   ax.set_xlim(0, Image_Width+2)
   ax.margins(0.1,0.1)
   ax.autoscale(enable=None, axis="x", tight=True)
