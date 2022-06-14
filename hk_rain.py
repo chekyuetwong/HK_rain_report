@@ -106,7 +106,7 @@ ax.set_ylabel("Tide Level (mCD)")
 fig.autofmt_xdate()
 
 plt.legend()
-timestamp=max(QUB.index).strftime("%Y-%m-%d_%H-%M")
+#timestamp=max(QUB.index).strftime("%Y-%m-%d_%H-%M")
 filename = Title+".png"
 #plt.savefig(filename, bbox_inches='tight')
 #plt.show()
