@@ -22,7 +22,7 @@ opts = FirefoxOptions()
 opts.add_argument("--headless")
 from datetime import time as tm
 
-
+@st.cache
 def grab_signal(url, c_name, from_row=4):
   driver = webdriver.Firefox(options=opts)
   driver.get(url)
