@@ -1,5 +1,22 @@
+from tide import tide, hko_table_csv, tide_data
 import streamlit as st
-from tide import tide
+import os, sys
+from selenium import webdriver
+from selenium.webdriver import FirefoxOptions
+opts = FirefoxOptions()
+opts.add_argument("--headless")
+import matplotlib.pyplot as plt
+import pandas as pd
+from bs4 import BeautifulSoup
+import time
+import matplotlib.dates as mdates
+
+@st.cache
+def installff():
+  os.system('sbase install geckodriver')
+  os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
+
+
 
 def home_page():
   st.markdown("""# Welcome to this App
@@ -11,5 +28,6 @@ to_func = {
   "Tide": tide
 }
 
+_ = installff()
 demo_name = st.sidebar.selectbox("Page Select", to_func.keys())
 to_func[demo_name]()
