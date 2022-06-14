@@ -10,8 +10,6 @@ from bs4 import BeautifulSoup
 import time
 import matplotlib.dates as mdates
 from datetime import datetime
-
-from datetime import datetime
 year = datetime.now().year
 month = datetime.now().month
 
