@@ -127,11 +127,9 @@ def warning():
   
 
   with st.sidebar:
-  """---
-  # Weather Warning Signal Timeline
-  ---
-  """
-
+    st.markdown("---")
+    st.title("Weather Warning Signal Timeline")
+    st.markdown("---")
     Title = st.text_input("Timeline Title", "Event Timeline")
   
     a1, a2, a3 = st.columns(3)
