@@ -234,3 +234,4 @@ def warning():
   ax.autoscale(enable=None, axis="x", tight=True)
 
   st.pyplot(fig)
+  st.write("Data Source: https://www.hko.gov.hk/en/wxinfo/climat/warndb/warndba.shtml")

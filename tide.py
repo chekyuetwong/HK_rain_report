@@ -59,7 +59,7 @@ def tide():
   Initialisation = True
   Download = True
   with st.sidebar:
-    st.title("Measured Tide Levels")
+    st.title("Measured Tide Levels (Nearest 24 hours)")
     Title = st.text_input("Plot Title", "Measured Tide Levels")
     Quarry_Bay = st.checkbox('Quarry Bay', value=True)
     Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
@@ -103,3 +103,4 @@ def tide():
   #plt.savefig(filename, bbox_inches='tight')
   #plt.show()
   st.pyplot(fig)
+  st.write("Data Source: https://www.hko.gov.hk/en/tide/marine/realtide.htm")
