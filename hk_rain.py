@@ -19,8 +19,6 @@ def installff():
   os.system('sbase install geckodriver')
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
-
-
 def home_page():
   st.markdown("""# Welcome to this App
   This is a web app under alpha testing regarding Hong Kong weather.
@@ -50,9 +48,5 @@ st.markdown(
 
 _ = installff()
 with st.sidebar:
-  if st.button('Refresh Data'):
-    caching.clear_cache()
   demo_name = st.selectbox("Applications", to_func.keys())
-  
-
 to_func[demo_name]()
