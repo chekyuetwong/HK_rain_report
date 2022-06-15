@@ -47,5 +47,5 @@ st.markdown(
 )
 
 _ = installff()
-demo_name = st.sidebar.selectbox("Page Select", to_func.keys())
+demo_name = st.sidebar.selectbox("Applications", to_func.keys())
 to_func[demo_name]()
