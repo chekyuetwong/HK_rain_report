@@ -5,3 +5,4 @@ selenium
 seleniumbase
 bs4
 matplotlib
+st_aggrid

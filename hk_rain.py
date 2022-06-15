@@ -1,4 +1,5 @@
 from tide import tide
+from tide2 import tide2
 from warning import warning
 import streamlit as st
 import os, sys
@@ -12,6 +13,7 @@ from bs4 import BeautifulSoup
 import time
 import matplotlib.dates as mdates
 from streamlit import caching
+st.set_page_config(layout="wide")
 
 
 @st.cache
@@ -26,8 +28,10 @@ def home_page():
 
 to_func = {
   "Home": home_page,
-  "Tide": tide,
+  "Tide (Nearest 24 Hours)": tide,
+  "Tide (10-min Data)": tide2,
   "Warning Timeline":warning
+  
 }
 
 
