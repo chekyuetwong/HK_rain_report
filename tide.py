@@ -53,14 +53,16 @@ def tide_data(station):
 
 def tide():
   Title = "Measured Tide Levels"
-  st.title(Title)
+  
 
   Initialisation = True
   Download = True
-  Quarry_Bay = st.checkbox('Quarry Bay', value=True)
-  Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
-  Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui', value=True)
-  Tai_O = st.checkbox('Tai O', value=True)
+  with st.sidebar:
+    st.title(Title)
+    Quarry_Bay = st.checkbox('Quarry Bay', value=True)
+    Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
+    Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui', value=True)
+    Tai_O = st.checkbox('Tai O', value=True)
 
   fig = plt.figure(figsize=[15,5])
   ax = fig.add_subplot(1,1,1)
