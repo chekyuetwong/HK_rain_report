@@ -30,6 +30,18 @@ to_func = {
   "Warning Timeline":warning
 }
 
+
+st.markdown(
+    f'''
+        <style>
+            .sidebar .sidebar-content {{
+                width: 600px;
+            }}
+        </style>
+    ''',
+    unsafe_allow_html=True
+  )
+
 _ = installff()
 demo_name = st.sidebar.selectbox("Page Select", to_func.keys())
 to_func[demo_name]()
