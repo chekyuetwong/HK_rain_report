@@ -59,5 +59,6 @@ def tide2():
     progress=i/len(timestamp)
     p_bar.progress(progress)
   st.write(tide_df)  
+  st.write("Data Source: https://data.gov.hk/en-data/dataset/hk-hko-rss-latest-tidal-info")
 
 tide2()
