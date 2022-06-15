@@ -127,10 +127,11 @@ def warning():
   
 
   with st.sidebar:
-    st.write("""---
-    # Weather Warning Signal Timeline
-    ---
-  """)
+  """---
+  # Weather Warning Signal Timeline
+  ---
+  """
+
     Title = st.text_input("Timeline Title", "Event Timeline")
   
     a1, a2, a3 = st.columns(3)
