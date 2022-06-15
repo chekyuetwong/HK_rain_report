@@ -47,5 +47,10 @@ st.markdown(
 )
 
 _ = installff()
-demo_name = st.sidebar.selectbox("Applications", to_func.keys())
+with st.sidebar:
+  if st.button('Refresh Data'):
+    st.experimental_singleton.clear()
+  demo_name = st.selectbox("Applications", to_func.keys())
+  
+
 to_func[demo_name]()
