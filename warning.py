@@ -152,8 +152,6 @@ def warning():
     with b5:
       Thunderstorm = st.selectbox("Thunderstorm", (0,1,2,3,4,5), 5)
     Image_Height = st.slider('Image Height', 5, 30, 10)
-    st.write("""#Timeline Customisation
-    """)
 
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)
