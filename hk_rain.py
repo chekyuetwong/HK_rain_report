@@ -32,15 +32,19 @@ to_func = {
 
 
 st.markdown(
-    f'''
-        <style>
-            .sidebar .sidebar-content {{
-                width: 600px;
-            }}
-        </style>
-    ''',
-    unsafe_allow_html=True
-  )
+    """
+    <style>
+    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+        width: 600px;
+    }
+    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+        width: 600px;
+        margin-left: -600px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 _ = installff()
 demo_name = st.sidebar.selectbox("Page Select", to_func.keys())
