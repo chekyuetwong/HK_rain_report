@@ -122,24 +122,15 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
 
 def warning():
 
-  st.markdown(
-    f'''
-        <style>
-            .sidebar .sidebar-content {{
-                width: 600px;
-            }}
-        </style>
-    ''',
-    unsafe_allow_html=True
-  )
-
   default_time1 = tm(0,0)
   default_time2 = tm(23,59)
-  st.write("""# Weather Warning Signal Timeline
-  ---
-  """)
+  
 
   with st.sidebar:
+    st.write("""---
+    # Weather Warning Signal Timeline
+    ---
+  """)
     Title = st.text_input("Timeline Title", "Event Timeline")
   
     a1, a2, a3 = st.columns(3)
