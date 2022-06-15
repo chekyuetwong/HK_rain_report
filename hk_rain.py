@@ -11,6 +11,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import time
 import matplotlib.dates as mdates
+from streamlit import caching
+
 
 @st.cache
 def installff():
@@ -49,7 +51,7 @@ st.markdown(
 _ = installff()
 with st.sidebar:
   if st.button('Refresh Data'):
-    st.experimental_singleton.clear()
+    caching.clear_cache()
   demo_name = st.selectbox("Applications", to_func.keys())
   
 
