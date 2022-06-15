@@ -121,6 +121,18 @@ def plot_bar(in_df, ss, ee, colour, pos, sname="", label=False):
   plt.annotate(sname, xy=(pos, ee), textcoords='data', fontsize=10, ha='center', bbox=dict(fc="white"))
 
 def warning():
+
+  st.markdown(
+    f'''
+        <style>
+            .sidebar .sidebar-content {{
+                width: 400px;
+            }}
+        </style>
+    ''',
+    unsafe_allow_html=True
+  )
+
   default_time1 = tm(0,0)
   default_time2 = tm(23,59)
   st.write("""# Weather Warning Signal Timeline
