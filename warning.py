@@ -126,7 +126,7 @@ def warning():
     f'''
         <style>
             .sidebar .sidebar-content {{
-                width: 400px;
+                width: 600px;
             }}
         </style>
     ''',
