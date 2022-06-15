@@ -22,7 +22,7 @@ opts = FirefoxOptions()
 opts.add_argument("--headless")
 from datetime import time as tm
 
-@st.cache
+@st.experimental_singleton
 def grab_signal(url, c_name, from_row=4):
   driver = webdriver.Firefox(options=opts)
   driver.get(url)
@@ -152,6 +152,8 @@ def warning():
     with b5:
       Thunderstorm = st.selectbox("Thunderstorm", (0,1,2,3,4,5), 5)
     Image_Height = st.slider('Image Height', 5, 30, 10)
+    if st.button('Refresh Data from HKO'):
+      grab_signal.clear()
 
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)

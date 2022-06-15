@@ -55,18 +55,19 @@ def tide_data(station):
 
 def tide():
   Title = "Measured Tide Levels"
-  
+
   Initialisation = True
   Download = True
   with st.sidebar:
-    if st.button('Refresh Data'):
-      tide_data.clear()
-      hko_table_csv.clear()
-    st.title(Title)
+    st.title("Measured Tide Levels")
+    Title = st.text_input("Plot Title", "Measured Tide Levels")
     Quarry_Bay = st.checkbox('Quarry Bay', value=True)
     Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
     Tsim_Bei_Tsui = st.checkbox('Tsim Bei Tsui', value=True)
     Tai_O = st.checkbox('Tai O', value=True)
+    if st.button('Refresh Data from HKO'):
+      tide_data.clear()
+      hko_table_csv.clear()
 
   fig = plt.figure(figsize=[15,5])
   ax = fig.add_subplot(1,1,1)
