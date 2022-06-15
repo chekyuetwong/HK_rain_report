@@ -59,9 +59,9 @@ def tide():
   Initialisation = True
   Download = True
   with st.sidebar:
-    #if st.button('Refresh Data'):
-    #  tide_data.clear()
-    #  hko_table_csv.clear()
+    if st.button('Refresh Data'):
+      tide_data.clear()
+      hko_table_csv.clear()
     st.title(Title)
     Quarry_Bay = st.checkbox('Quarry Bay', value=True)
     Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
