@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import time
 import matplotlib.dates as mdates
 
-@st.cache
+@st.experimental_singleton
 def hko_table_csv(url):
     driver = webdriver.Firefox(options=opts)
     driver.get(url)
@@ -28,7 +28,7 @@ def hko_table_csv(url):
     driver.close() # closing the webdriver
     return data
 
-@st.cache
+@st.experimental_singleton
 def tide_data(station):
   station=str(station)
   try: 
@@ -51,6 +51,8 @@ def tide_data(station):
   except:
     print("Error encountered. The plot for "+station+" was unsuccessful.")
 
+
+
 def tide():
   Title = "Measured Tide Levels"
   
@@ -58,6 +60,9 @@ def tide():
   Initialisation = True
   Download = True
   with st.sidebar:
+    if st.button('Refresh Data'):
+      tide_data.clear()
+      hko_table_csv.clear()
     st.title(Title)
     Quarry_Bay = st.checkbox('Quarry Bay', value=True)
     Tai_Po_Kau = st.checkbox('Tai Po Kau', value=True)
