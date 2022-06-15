@@ -128,25 +128,29 @@ def warning():
   """)
 
   Title = st.text_input("Timeline Title", "Event Timeline")
-  col1, col2 = st.columns(2)
-  with col1:
-    a1, a2, a3 = st.columns(3)
-    with a1:
-      Start_Date = st.date_input("Start Date")
-      Start_Time = st.time_input('Start Time', default_time1)
-    with a2:
-      End_Date = st.date_input("End Date")
-      End_Time = st.time_input('End Time',  default_time2)
+  
+  a1, a2, a3 = st.columns(3)
+  with a1:
+    Start_Date = st.date_input("Start Date")
+    Start_Time = st.time_input('Start Time', default_time1)
+  with a2:
+    End_Date = st.date_input("End Date")
+    End_Time = st.time_input('End Time',  default_time2)
 
-    with a3:
-      Rainstorm = st.selectbox("Rainstorm", (0,1,2,3,4,5), 1)
-      SAFNNT = st.selectbox("SAFNNT", (0,1,2,3,4,5), 2)
-      Tropical_Cyclone = st.selectbox("Tropical Cyclone", (0,1,2,3,4,5), 3)
-      Landslip = st.selectbox("Landslip", (0,1,2,3,4,5), 4)
-      Thunderstorm = st.selectbox("Thunderstorm", (0,1,2,3,4,5), 5)
-    Image_Height = st.slider('Image Height', 5, 30, 10)
-    st.write("""#Timeline Customisation
-    """)
+  b1, b2, b3, b4, b5 = st.columns(5)
+  with b1:
+    Rainstorm = st.selectbox("Rainstorm", (0,1,2,3,4,5), 1)
+  with b2:
+    SAFNNT = st.selectbox("SAFNNT", (0,1,2,3,4,5), 2)
+  with b3:
+    Tropical_Cyclone = st.selectbox("Tropical Cyclone", (0,1,2,3,4,5), 3)
+  with b4:
+    Landslip = st.selectbox("Landslip", (0,1,2,3,4,5), 4)
+  with b5:
+    Thunderstorm = st.selectbox("Thunderstorm", (0,1,2,3,4,5), 5)
+  Image_Height = st.slider('Image Height', 5, 30, 10)
+  st.write("""#Timeline Customisation
+  """)
 
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)
@@ -231,5 +235,4 @@ def warning():
   ax.margins(0.1,0.1)
   ax.autoscale(enable=None, axis="x", tight=True)
 
-  with col2:
-    fig
+  st.pyplot(fig)
