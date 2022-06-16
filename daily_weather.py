@@ -91,7 +91,7 @@ def daily_weather():
   dfc=dfc[ds:de]
   dfc = dfc.rename({"Day": "Record Date"}, axis='columns')
   #chartdata=df[df.applymap(isnumber)]
-  chartdata=df
+  chartdata=dfc
   AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
   
   fig = px.line(chartdata)
