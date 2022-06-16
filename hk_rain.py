@@ -1,6 +1,6 @@
 #from tide import tide
 #from tide2 import tide2
-#from daily_weather import daily_weather
+from daily_weather import daily_weather
 #from warning import warning
 import streamlit as st
 import os, sys
@@ -26,10 +26,11 @@ def installff():
   os.system('sbase install geckodriver')
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
+@st.experimental_singleton
 _ = installff()
 to_func = {
   "Home": home_page,
-  #"Daily Weather": daily_weather,
+  "Daily Weather": daily_weather,
   #"Tide (Nearest 24 Hours)": tide,
   #"Tide (10-min Data)": tide2,
   #"Warning Timeline":warning
