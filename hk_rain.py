@@ -38,7 +38,7 @@ else:
   to_func = {
     "Home": home_page,
     "Tide (Nearest 24 Hours)": tide,
-    "Tide (Fine Interval Data)": tide2,
+    "Tide (Since Jul 2020)": tide2,
     "Warning Timeline":warning
   }
 

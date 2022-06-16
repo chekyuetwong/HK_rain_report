@@ -20,7 +20,7 @@ def tide2():
 
   with st.sidebar:
     st.markdown("---")
-    st.title("Tide (10-min Data)")
+    st.title("Measured Tide Level")
     st.markdown("---")
     a1, a2 = st.columns(2)
     with a1:
@@ -35,7 +35,7 @@ def tide2():
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)
 
-  inv = st.sidebar.slider("SamplingInterval", min_value=10, max_value=120, value = 60, step = 10)
+  inv = st.sidebar.slider("Sampling Interval", min_value=10, max_value=120, value = 60, step = 10)
   ind=pd.date_range(ds, de, freq=str(inv)+'min')
   timestamp=[a.strftime('%Y%m%d-%H%M') for a in ind]
 
