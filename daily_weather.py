@@ -25,7 +25,7 @@ from datetime import time as tm
 @st.experimental_singleton
 def hko_daily_table(url):
     driver.get(url)
-    time.sleep(5)
+    time.sleep(2)
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
     mainc = soup.find(id='mainContent')
@@ -85,6 +85,6 @@ def daily_weather():
     progress=j/ind.shape[0]
     p_bar.progress(progress)
 
-  dfc.index = dfc.index.strftime('%Y-%m-%d')
+  #dfc.index = dfc.index.strftime('%Y-%m-%d')
   dfc=dfc.drop(["Day"], axis=1)
   st.write(dfc[ds:de]) 
