@@ -29,13 +29,13 @@ def hko_table_csv(url):
     #driver.close() # closing the webdriver
     return data
 
-#@st.experimental_singleton
+@st.experimental_singleton
 def tide_data(station):
   #station=str(station)
-  #try: 
-  if True:
+  try: 
+  #if True:
     URL="https://www.hko.gov.hk/en/tide/marine/realtide.htm?s="+station+"&t=TABLE"
-    st.sidebar.success("Updated data to be retrieved from: "+URL)
+    #st.sidebar.success("Updated data to be retrieved from: "+URL)
     data = hko_table_csv(URL)
     df = pd.DataFrame(data)
     df1 = df.iloc[8:, 0:3]
@@ -50,8 +50,8 @@ def tide_data(station):
     st.sidebar.success("Data Retrieval for "+station+" was successful.")
     return df1
 
-  #except:
-  #  st.sidebar.warning("Error encountered. Data Retrieval for "+station+" was unsuccessful.")
+  except:
+    st.sidebar.warning("Error encountered. Data Retrieval for "+station+" was unsuccessful.")
 
 
 

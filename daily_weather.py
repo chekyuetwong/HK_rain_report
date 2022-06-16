@@ -18,10 +18,7 @@ from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
-driver = webdriver.Firefox(
-    options=opts,
-    executable_path="/home/appuser/.conda/bin/geckodriver",
-)
+driver = webdriver.Firefox(options=opts)
 from datetime import time as tm
 
 
