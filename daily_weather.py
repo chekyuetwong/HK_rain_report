@@ -86,5 +86,5 @@ def daily_weather():
     progress=j/ind.shape[0]
     p_bar.progress(progress)
 
-  #st.write(dfc[ds:de]) 
-  AgGrid(dfc[ds:de], height=800,fit_columns_on_grid_load=True)
+  st.write(dfc[ds:de]) 
+  #AgGrid(dfc[ds:de], height=800,fit_columns_on_grid_load=True)
