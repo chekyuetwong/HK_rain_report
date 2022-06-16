@@ -90,8 +90,9 @@ def daily_weather():
   dfc["Day"]=dfc.index.strftime('%Y-%m-%d')
   dfc=dfc[ds:de]
   dfc = dfc.rename({"Day": "Record Date"}, axis='columns')
-  AgGrid(dfc, height=300,fit_columns_on_grid_load=True)
   chartdata=df[df.applymap(isnumber)]
+  AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
+  
   fig = px.line(chartdata)
   st.plotly_chart(fig)
 
