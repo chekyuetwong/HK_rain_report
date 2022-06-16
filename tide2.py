@@ -27,7 +27,7 @@ def tide2():
     with a2:
       End_Date = st.date_input("End Date")
       End_Time = st.time_input('End Time',  default_time2)
-    success = st.empty
+    
 
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)
@@ -42,8 +42,7 @@ def tide2():
   st.sidebar.markdown("---")
   st.sidebar.write("Loading Progress:")
   p_bar = st.sidebar.progress(0)
-
-
+  success = st.empty()
      
   i=0
   for t in timestamp:
