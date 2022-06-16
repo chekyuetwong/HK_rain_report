@@ -35,7 +35,7 @@ def tide_data(station):
   #try: 
   if True:
     URL="https://www.hko.gov.hk/en/tide/marine/realtide.htm?s="+station+"&t=TABLE"
-    print("Updated data retrieved from: ", URL)
+    st.sidebar.success("Updated data to be retrieved from: ", URL)
     data = hko_table_csv(URL)
     df = pd.DataFrame(data)
     df1 = df.iloc[8:, 0:3]
