@@ -29,10 +29,10 @@ def installff():
 _ = installff()
 to_func = {
   "Home": home_page,
-  "Daily Weather": daily_weather,
-  "Tide (Nearest 24 Hours)": tide,
-  "Tide (10-min Data)": tide2,
-  "Warning Timeline":warning
+  #"Daily Weather": daily_weather,
+  #"Tide (Nearest 24 Hours)": tide,
+  #"Tide (10-min Data)": tide2,
+  #"Warning Timeline":warning
   
 }
 
