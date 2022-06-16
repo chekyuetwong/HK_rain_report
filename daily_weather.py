@@ -94,7 +94,7 @@ def daily_weather():
   chartdata=dfc
   AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
   
-  fig = px.line(chartdata.iloc[:,2:])
+  fig = px.line(chartdata.iloc[:,1:])
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
 
