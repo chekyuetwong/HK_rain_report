@@ -44,9 +44,8 @@ month = datetime.now().month
 def daily_weather():
   with st.sidebar:
     st.markdown("---")
-    st.title("Weather Warning Signal Timeline")
+    st.title("Daily Weather Summary")
     st.markdown("---")
-    Title = st.text_input("Timeline Title", "Event Timeline")
   
     a1, a2, a3 = st.columns(3)
     with a1:
@@ -56,7 +55,7 @@ def daily_weather():
 
   all_col = ["Day", "Mean Pressure (hPa)", "Absolute Daily Max (deg. C)", "Mean (deg. C)", "Absolute Daily Min (deg. C)", "Mean Dew Point (deg. C)", "Mean Relative Humidity (%)", "Mean Amount", "Total Rainfall (mm)", "Total Bright Sunshine (hours)", "Prevailing Wind Direction (degrees)", "Mean Wind Speed (km/h)"] 
   dfc=pd.DataFrame(columns=all_col)
-  ind=pd.date_range(ds, de, freq='1M')
+  ind=pd.date_range(ds, de, freq='1M', inclusive="both")
   st.write(ind)
   for i in ind:
     year = i.year
@@ -74,4 +73,4 @@ def daily_weather():
     df=df.drop(columns=['year', 'month', 'Day'])
     dfc = pd.concat([dfc, df])
     st.sidebar.success("%04d-%02d data retrieved."%(year, month))
-  st.write(dfc) 
+  st.write(dfc[ds:de]) 
