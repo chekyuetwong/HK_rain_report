@@ -10,6 +10,7 @@ import pandas as pd
 from datetime import time as tm
 from st_aggrid import AgGrid
 import plotly.express as px
+import numpy as np
 
 def tide2():
 
@@ -39,14 +40,14 @@ def tide2():
   url="https://api.data.gov.hk/v1/historical-archive/get-file?url=https%3A%2F%2Fdata.weather.gov.hk%2FweatherAPI%2Fhko_data%2Ftide%2FALL_en.csv&time="#20220613-0000
 
   tide_df=pd.DataFrame(columns=["Quarry Bay", "Shek Pik", "Tsim Bei Tsui", "Tai Mui Wan", "Tai Po Kau", "Tai O"])
-
   st.sidebar.markdown("---")
   st.sidebar.write("Loading Progress:")
   p_bar = st.sidebar.progress(0)
   success = st.sidebar.empty()
   out_plot = st.empty()
   output = st.empty()
-     
+  
+  tide_df.loc[ds,:]=[np.nan,np.nan,np.nan,np.nan,np.nan,np.nan]
   i=0
   for t in timestamp:
     read_url=url+t
@@ -59,6 +60,7 @@ def tide2():
     data=df["Height(m)"].to_list()
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
     tide_df.loc[read_time,:]=data
+    out_plot.plotly_chart(fig)
     output.write(tide_df) 
     i+=1
     progress=i/len(timestamp)
@@ -67,7 +69,6 @@ def tide2():
   
   fig = px.line(tide_df.iloc[:,1:])
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
-  out_plot.plotly_chart(fig)
   st.write("Data Source: https://data.gov.hk/en-data/dataset/hk-hko-rss-latest-tidal-info")
 
 def isnumber(x):
