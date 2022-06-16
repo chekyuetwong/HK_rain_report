@@ -4,3 +4,4 @@ seleniumbase
 bs4
 streamlit-aggrid
 matplotlib
+numpy
