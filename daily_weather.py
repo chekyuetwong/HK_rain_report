@@ -86,6 +86,6 @@ def daily_weather():
     progress=j/ind.shape[0]
     p_bar.progress(progress)
 
-  dfc.index = pd.to_datetime(dfc.index, format = '%m/%d/%Y').strftime('%Y-%m-%d')
+  dfc.index = dfc.index.strftime('%Y-%m-%d')
   dfc=dfc.drop(["Day"], axis=1)
   st.write(dfc[ds:de]) 
