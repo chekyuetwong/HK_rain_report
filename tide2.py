@@ -47,7 +47,7 @@ def tide2():
   out_plot = st.empty()
   output = st.empty()
   
-  tide_df.loc[ds-pd.DateOffset(minutes=15),:]=[0,np.nan,np.nan,np.nan,np.nan,np.nan]
+  #tide_df.loc[ds-pd.DateOffset(minutes=15),:]=[0,np.nan,np.nan,np.nan,np.nan,np.nan]
   output.write(tide_df) 
   i=0
   for t in timestamp:
@@ -64,7 +64,7 @@ def tide2():
     fig = px.line(tide_df.iloc[:,1:])
     fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
     out_plot.plotly_chart(fig)
-    output.write(tide_df) 
+    #output.write(tide_df) 
     i+=1
     progress=i/len(timestamp)
     p_bar.progress(progress)
