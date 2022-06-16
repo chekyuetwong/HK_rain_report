@@ -16,10 +16,10 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
-firefoxOptions = FirefoxOptions
-firefoxOptions.add_argument("--headless")
+opts = FirefoxOptions()
+opts.add_argument("--headless")
 driver = webdriver.Firefox(
-    options=firefoxOptions,
+    options=opts,
     executable_path="/home/appuser/.conda/bin/geckodriver",
 )
 from datetime import time as tm
