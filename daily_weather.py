@@ -91,5 +91,14 @@ def daily_weather():
   dfc=dfc[ds:de]
   dfc = dfc.rename({"Day": "Record Date"}, axis='columns')
   AgGrid(dfc, height=300,fit_columns_on_grid_load=True)
-  fig = px.line(dfc.iloc[:, 1:])
+  chartdata=df[df.applymap(isnumber)]
+  fig = px.line(chartdata)
   st.plotly_chart(fig)
+
+def isnumber(x):
+    try:
+        float(x)
+        return True
+    except:
+        return False
+
