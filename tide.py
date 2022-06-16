@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
-browser = webdriver.Firefox(options=opts)
+driver = webdriver.Firefox(options=opts)
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -32,8 +32,8 @@ def hko_table_csv(url):
 #@st.experimental_singleton
 def tide_data(station):
   #station=str(station)
-  #try: 
-  if True:
+  try: 
+  #if True:
     URL="https://www.hko.gov.hk/en/tide/marine/realtide.htm?s="+station+"&t=TABLE"
     print("Updated data retrieved from: ", URL)
     data = hko_table_csv(URL)
@@ -50,8 +50,8 @@ def tide_data(station):
     st.sidebar.success("Data Retrieval for "+station+" was successful.")
     return df1
 
-  #except:
-  #  st.sidebar.warning("Error encountered. Data Retrieval for "+station+" was unsuccessful.")
+  except:
+    st.sidebar.warning("Error encountered. Data Retrieval for "+station+" was unsuccessful.")
 
 
 
