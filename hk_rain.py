@@ -1,6 +1,3 @@
-from tide import tide
-from tide2 import tide2
-from warning import warning
 import streamlit as st
 import os, sys
 from selenium import webdriver
@@ -14,12 +11,13 @@ import time
 import matplotlib.dates as mdates
 from streamlit import caching
 st.set_page_config(layout="wide")
+setup = True
 
 def home_page():
   st.markdown("""# HK Weather Summary Web App
   ---
   Relevant Link:
-  
+
   HK Daily Weather Insight: https://share.streamlit.io/chekyuetwong/hko_daily_insight/main/daily_insight.py
 
   """)
@@ -30,13 +28,19 @@ def installff():
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
 _ = installff()
-to_func = {
-  "Home": home_page,
-  "Tide (Nearest 24 Hours)": tide,
-  "Tide (10-min Data)": tide2,
-  "Warning Timeline":warning
-  
-}
+
+if setup == True:
+  to_func = {"Home": home_page,}
+else:
+  from tide import tide
+  from tide2 import tide2
+  from warning import warning
+  to_func = {
+    "Home": home_page,
+    "Tide (Nearest 24 Hours)": tide,
+    "Tide (10-min Data)": tide2,
+    "Warning Timeline":warning
+  }
 
 st.markdown(
     """
