@@ -16,8 +16,10 @@ from streamlit import caching
 st.set_page_config(layout="wide")
 
 def home_page():
-  st.markdown("""# Welcome to this App
-  This is a web app under alpha testing regarding Hong Kong weather.
+  st.markdown("""# HK Weather Summary Web App
+  ---
+  HK Daily Weather Insight: https://share.streamlit.io/chekyuetwong/hko_daily_insight/main/daily_insight.py
+
   """)
 
 @st.cache
