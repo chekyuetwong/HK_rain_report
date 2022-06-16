@@ -64,7 +64,7 @@ def tide2():
     fig = px.line(tide_df.iloc[:,1:])
     fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
     out_plot.plotly_chart(fig)
-    output.write(tide_df.fillna('')) 
+    output.write(tide_df.astype(str)) 
     i+=1
     progress=i/len(timestamp)
     p_bar.progress(progress)
