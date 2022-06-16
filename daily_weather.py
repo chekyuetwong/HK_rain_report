@@ -21,6 +21,7 @@ opts.add_argument("--headless")
 driver = webdriver.Firefox(options=opts)
 from datetime import time as tm
 from st_aggrid import AgGrid
+import plotly.express as px
 
 
 @st.experimental_singleton
@@ -89,3 +90,5 @@ def daily_weather():
   dfc["Day"]=dfc.index.strftime('%Y-%m-%d')
   dfc = dfc.rename({"Day": "Record Date"}, axis='columns')
   AgGrid(dfc, height=300,fit_columns_on_grid_load=True)
+  fig = px.line(dfc)
+  st.plotly_chart(fig)
