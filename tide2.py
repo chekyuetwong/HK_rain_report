@@ -48,6 +48,7 @@ def tide2():
   for t in timestamp:
     read_url=url+t
     df = pd.read_csv(url+t)
+    st.sidebar.success("%s was read!"%(url+t))
     #AgGrid(df, height=300,fit_columns_on_grid_load=True)
     df=df.set_index("Tide Station")
     combined_time=df["Date"][0]+" "+df["Time"][0]
@@ -56,7 +57,6 @@ def tide2():
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
     tide_df.loc[read_time,:]=data
     st.write(tide_df)
-    st.sidebar.success("%s was read!"%(url+t))
     i+=1
     progress=i/len(timestamp)
     p_bar.progress(progress)
