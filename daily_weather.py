@@ -52,6 +52,9 @@ def daily_weather():
       ds = st.date_input("Start Date")
     with a2:
       de = st.date_input("End Date")
+      st.markdown("---")
+    st.write("Loading Progress:")
+    p_bar = st.sidebar.progress(0)
 
   all_col = ["Day", "Mean Pressure (hPa)", "Absolute Daily Max (deg. C)", "Mean (deg. C)", "Absolute Daily Min (deg. C)", "Mean Dew Point (deg. C)", "Mean Relative Humidity (%)", "Mean Amount", "Total Rainfall (mm)", "Total Bright Sunshine (hours)", "Prevailing Wind Direction (degrees)", "Mean Wind Speed (km/h)"] 
   dfc=pd.DataFrame(columns=all_col)
@@ -59,7 +62,7 @@ def daily_weather():
 
 
   
-  st.write(ind)
+  #st.write(ind)
   j=0
 
   for i in ind:
