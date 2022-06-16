@@ -29,7 +29,7 @@ def hko_table_csv(url):
     driver.close() # closing the webdriver
     return data
 
-@st.experimental_singleton
+#@st.experimental_singleton
 def tide_data(station):
   #station=str(station)
   try: 
