@@ -16,7 +16,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
-firefoxOptions = Options()
+firefoxOptions = firefoxOptions()#Options()
 firefoxOptions.add_argument("--headless")
 driver = webdriver.Firefox(
     options=firefoxOptions,
