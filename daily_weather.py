@@ -86,5 +86,6 @@ def daily_weather():
     p_bar.progress(progress)
 
   dfc=dfc.drop(["Day"], axis=1)
-  df_out = dfc[ds:de].index.strftime('%Y-%m-%d')
+  df_out = dfc[ds:de]
+  df_out = df_out.index.strftime('%Y-%m-%d')
   st.write(df_out) 
