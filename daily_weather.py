@@ -55,7 +55,7 @@ def daily_weather():
 
   all_col = ["Day", "Mean Pressure (hPa)", "Absolute Daily Max (deg. C)", "Mean (deg. C)", "Absolute Daily Min (deg. C)", "Mean Dew Point (deg. C)", "Mean Relative Humidity (%)", "Mean Amount", "Total Rainfall (mm)", "Total Bright Sunshine (hours)", "Prevailing Wind Direction (degrees)", "Mean Wind Speed (km/h)"] 
   dfc=pd.DataFrame(columns=all_col)
-  ind=pd.date_range(ds, de, freq='1M', closed="both")
+  ind=pd.date_range(ds, de, freq='1M', closed="right")
   ind=pd.date_range(ds, de, freq='1M', inclusive="both") #pandas 1.4.0 or later
   
   st.write(ind)
