@@ -56,7 +56,6 @@ def tide2():
     data=df["Height(m)"].to_list()
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
     tide_df.loc[read_time,:]=data
-    st.write(tide_df)
     i+=1
     progress=i/len(timestamp)
     p_bar.progress(progress)
