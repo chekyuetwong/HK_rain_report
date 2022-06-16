@@ -42,7 +42,7 @@ def tide2():
   st.sidebar.markdown("---")
   st.sidebar.write("Loading Progress:")
   p_bar = st.sidebar.progress(0)
-  success = st.empty()
+  success = st.sidebar.empty()
      
   i=0
   for t in timestamp:
