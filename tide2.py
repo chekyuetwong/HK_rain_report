@@ -60,6 +60,8 @@ def tide2():
     data=df["Height(m)"].to_list()
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
     tide_df.loc[read_time,:]=data
+    fig = px.line(tide_df.iloc[:,1:])
+    fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
     out_plot.plotly_chart(fig)
     output.write(tide_df) 
     i+=1
@@ -67,8 +69,7 @@ def tide2():
     p_bar.progress(progress)
   
   
-  fig = px.line(tide_df.iloc[:,1:])
-  fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
+  
   st.write("Data Source: https://data.gov.hk/en-data/dataset/hk-hko-rss-latest-tidal-info")
 
 def isnumber(x):
