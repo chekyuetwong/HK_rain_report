@@ -14,8 +14,8 @@ import numpy as np
 
 def tide2():
 
-  default_time1 = tm(0,0)
-  default_time2 = tm(0,10)
+  default_time1 = tm(6,0)
+  default_time2 = tm(9,0)
   
 
   with st.sidebar:
