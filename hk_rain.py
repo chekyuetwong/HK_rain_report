@@ -1,6 +1,6 @@
-#from tide import tide
-#from tide2 import tide2
-#from warning import warning
+from tide import tide
+from tide2 import tide2
+from warning import warning
 import streamlit as st
 import os, sys
 from selenium import webdriver
@@ -28,9 +28,9 @@ def installff():
 _ = installff()
 to_func = {
   "Home": home_page,
-  #"Tide (Nearest 24 Hours)": tide,
-  #"Tide (10-min Data)": tide2,
-  #"Warning Timeline":warning
+  "Tide (Nearest 24 Hours)": tide,
+  "Tide (10-min Data)": tide2,
+  "Warning Timeline":warning
   
 }
 
