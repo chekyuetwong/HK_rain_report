@@ -91,12 +91,14 @@ def daily_weather():
   dfc=dfc[ds:de]
   dfc = dfc.rename({"Day": "Record Date"}, axis='columns')
   #chartdata=df[df.applymap(isnumber)]
-  chartdata=dfc
-  AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
-  
+  chartdata=dfc 
   fig = px.line(chartdata.iloc[:,1:])
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
+
+  st.write("Data")
+  AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
+  st.write("Data Source: https://www.hko.gov.hk/en/cis/dailyExtract.htm")
 
 def isnumber(x):
     try:
