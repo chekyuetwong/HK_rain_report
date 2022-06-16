@@ -75,6 +75,7 @@ def tide():
 
   if Quarry_Bay:
     QUB=tide_data("QUB")
+    st.write(QUB)
     plt.plot(QUB.index, QUB["Measured"], label="Quarry Bay")
 
   if Tai_Po_Kau:
