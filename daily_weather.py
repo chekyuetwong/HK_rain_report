@@ -35,7 +35,7 @@ def hko_daily_table(url):
         cols = row.find_all('td')
         cols = [ele.text.strip() for ele in cols]
         data.append([ele for ele in cols if ele]) # Get rid of empty values
-    driver.close() # closing the webdriver
+    
     return data
 
 year = datetime.now().year
