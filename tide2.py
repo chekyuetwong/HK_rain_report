@@ -47,7 +47,6 @@ def tide2():
   out_plot = st.empty()
   output = st.empty()
   
-  #tide_df.loc[ds-pd.DateOffset(minutes=15),:]=[0,np.nan,np.nan,np.nan,np.nan,np.nan]
   output.write(tide_df) 
   i=0
   for t in timestamp:
@@ -61,7 +60,7 @@ def tide2():
     data=df["Height(m)"].to_list()
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
     tide_df.loc[read_time,:]=data
-    fig = px.line(tide_df.iloc[:,1:], labels={
+    fig = px.line(tide_df, labels={
                      "variable": "Tide Station",
                      "index": "Time",
                      "value": "Measured Tide Level (mCD)",
