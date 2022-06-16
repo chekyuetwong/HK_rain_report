@@ -47,7 +47,8 @@ def tide2():
   out_plot = st.empty()
   output = st.empty()
   
-  tide_df.loc[ds-pd.DateOffset(minutes=5),:]=[0,np.nan,np.nan,np.nan,np.nan,np.nan]
+  tide_df.loc[ds-pd.DateOffset(minutes=15),:]=[0,np.nan,np.nan,np.nan,np.nan,np.nan]
+  output.write(tide_df) 
   i=0
   for t in timestamp:
     read_url=url+t
