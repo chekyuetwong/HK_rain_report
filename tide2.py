@@ -65,7 +65,7 @@ def tide2():
     p_bar.progress(progress)
   
   
-  fig = px.line(chartdata.iloc[:,1:])
+  fig = px.line(tide_df.iloc[:,1:])
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   out_plot.plotly_chart(fig)
   st.write("Data Source: https://data.gov.hk/en-data/dataset/hk-hko-rss-latest-tidal-info")
