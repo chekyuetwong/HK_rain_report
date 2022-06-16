@@ -20,7 +20,7 @@ opts = FirefoxOptions()
 opts.add_argument("--headless")
 driver = webdriver.Firefox(options=opts)
 from datetime import time as tm
-from st_aggrid import AgGrid
+
 
 @st.experimental_singleton
 def hko_daily_table(url):
@@ -87,4 +87,3 @@ def daily_weather():
     p_bar.progress(progress)
 
   st.write(dfc[ds:de]) 
-  #AgGrid(dfc[ds:de], height=800,fit_columns_on_grid_load=True)
