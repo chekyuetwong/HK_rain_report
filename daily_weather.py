@@ -20,6 +20,7 @@ opts = FirefoxOptions()
 opts.add_argument("--headless")
 driver = webdriver.Firefox(options=opts)
 from datetime import time as tm
+from st_aggrid import AgGrid
 
 
 @st.experimental_singleton
@@ -89,3 +90,4 @@ def daily_weather():
   df_out = dfc[ds:de]
   df_out.index = df_out.index.strftime('%Y-%m-%d')
   st.dataframe(df_out) 
+  AgGrid(df_out, height=300,fit_columns_on_grid_load=True)
