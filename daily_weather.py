@@ -86,8 +86,8 @@ def daily_weather():
     progress=j/ind.shape[0]
     p_bar.progress(progress)
 
-  dfc=dfc.drop(["Day"], axis=1)
-  df_out = dfc[ds:de]
-  df_out.index = df_out.index.strftime('%Y-%m-%d')
-  st.dataframe(df_out) 
-  AgGrid(df_out, height=300,fit_columns_on_grid_load=True)
+  dfc["Day"]=dfc.index.strftime('%Y-%m-%d')
+  #df_out = dfc[ds:de]
+  #df_out.index = df_out.index.strftime('%Y-%m-%d')
+  #st.dataframe(df_out) 
+  AgGrid(dfc, height=300,fit_columns_on_grid_load=True)
