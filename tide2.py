@@ -9,6 +9,7 @@ import requests
 import pandas as pd
 from datetime import time as tm
 from st_aggrid import AgGrid
+import plotly.express as px
 
 def tide2():
 
@@ -43,6 +44,8 @@ def tide2():
   st.sidebar.write("Loading Progress:")
   p_bar = st.sidebar.progress(0)
   success = st.sidebar.empty()
+  out_plot = st.empty()
+  output = st.empty()
      
   i=0
   for t in timestamp:
@@ -56,10 +59,15 @@ def tide2():
     data=df["Height(m)"].to_list()
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
     tide_df.loc[read_time,:]=data
+    output.write(tide_df) 
     i+=1
     progress=i/len(timestamp)
     p_bar.progress(progress)
-  st.write(tide_df)  
+  
+  
+  fig = px.line(chartdata.iloc[:,1:])
+  fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
+  out_plot.plotly_chart(fig)
   st.write("Data Source: https://data.gov.hk/en-data/dataset/hk-hko-rss-latest-tidal-info")
 
 def isnumber(x):
