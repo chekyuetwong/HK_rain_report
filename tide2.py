@@ -50,6 +50,7 @@ def tide2():
     df = pd.read_csv(url+t)
     #AgGrid(df, height=300,fit_columns_on_grid_load=True)
     df=df.set_index("Tide Station")
+    df=df[df.applymap(isnumber)]
     data=df["Height(m)"].to_list()
     combined_time=df["Date"][0]+" "+df["Time"][0]
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
@@ -60,5 +61,12 @@ def tide2():
     p_bar.progress(progress)
   st.write(tide_df)  
   st.write("Data Source: https://data.gov.hk/en-data/dataset/hk-hko-rss-latest-tidal-info")
+
+def isnumber(x):
+    try:
+        float(x)
+        return True
+    except:
+        return False
 
 #tide2()
