@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
+browser = webdriver.Firefox(options=opts)
+
 import matplotlib.pyplot as plt
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -12,11 +14,6 @@ import matplotlib.dates as mdates
 
 @st.experimental_singleton
 def hko_table_csv(url):
-    #driver = webdriver.Firefox(options=opts)
-    firefoxOptions = Options()
-    firefoxOptions.add_argument("--headless")
-    driver = webdriver.Firefox(options=firefoxOptions,
-    executable_path="/home/appuser/.conda/bin/geckodriver",)
     driver.get(url)
     time.sleep(5)
     html = driver.page_source
