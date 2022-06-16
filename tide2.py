@@ -54,7 +54,7 @@ def tide2():
     combined_time=df["Date"][0]+" "+df["Time"][0]
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
     tide_df.loc[read_time,:]=data
-    st.sidebar.success("Data for %s was read!"%combined_time)
+    st.sidebar.success("%s was read!"%(url+t))
     i+=1
     progress=i/len(timestamp)
     p_bar.progress(progress)
