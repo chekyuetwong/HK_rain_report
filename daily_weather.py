@@ -60,6 +60,8 @@ def daily_weather():
 
   
   st.write(ind)
+  j=0
+
   for i in ind:
     year = i.year
     month = i.month
@@ -76,4 +78,9 @@ def daily_weather():
     df=df.drop(columns=['year', 'month', 'Day'])
     dfc = pd.concat([dfc, df])
     st.sidebar.success("%04d-%02d data retrieved."%(year, month))
-  st.write(dfc[ds:de]) 
+    j+=1
+    progress=j/ind.shape[0]
+    p_bar.progress(progress)
+
+  #st.write(dfc[ds:de]) 
+  AgGrid(dfc[ds:de], height=800,fit_columns_on_grid_load=True)
