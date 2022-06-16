@@ -1,7 +1,7 @@
-#from tide import tide
-#from tide2 import tide2
+from tide import tide
+from tide2 import tide2
 #from daily_weather import daily_weather
-#from warning import warning
+from warning import warning
 import streamlit as st
 import os, sys
 from selenium import webdriver
