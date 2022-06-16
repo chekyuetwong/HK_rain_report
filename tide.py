@@ -74,6 +74,7 @@ def tide():
   ax = fig.add_subplot(1,1,1)
 
   if Quarry_Bay:
+    st.write("read QUB")
     QUB=tide_data("QUB")
     st.write(QUB)
     plt.plot(QUB.index, QUB["Measured"], label="Quarry Bay")
