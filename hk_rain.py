@@ -1,7 +1,7 @@
-from tide import tide
-from tide2 import tide2
+#from tide import tide
+#from tide2 import tide2
 from daily_weather import daily_weather
-from warning import warning
+#from warning import warning
 import streamlit as st
 import os, sys
 from selenium import webdriver
@@ -30,29 +30,13 @@ def home_page():
 to_func = {
   "Home": home_page,
   "Daily Weather": daily_weather,
-  "Tide (Nearest 24 Hours)": tide,
-  "Tide (10-min Data)": tide2,
-  "Warning Timeline":warning
+  #"Tide (Nearest 24 Hours)": tide,
+  #"Tide (10-min Data)": tide2,
+  #"Warning Timeline":warning
   
 }
 
-
-st.markdown(
-    """
-    <style>
-    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
-        width: 600px;
-    }
-    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
-        width: 600px;
-        margin-left: -600px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-_ = installff()
+#_ = installff()
 with st.sidebar:
   demo_name = st.selectbox("Applications", to_func.keys())
 to_func[demo_name]()

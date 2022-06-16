@@ -16,15 +16,17 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
-opts = FirefoxOptions()
-opts.add_argument("--headless")
-driver = webdriver.Firefox(options=opts)
+firefoxOptions = Options()
+firefoxOptions.add_argument("--headless")
+driver = webdriver.Firefox(
+    options=firefoxOptions,
+    executable_path="/home/appuser/.conda/bin/geckodriver",
+)
 from datetime import time as tm
 
 
 @st.experimental_singleton
 def hko_daily_table(url):
-    driver = webdriver.Firefox(options=opts)
     driver.get(url)
     time.sleep(5)
     html = driver.page_source
