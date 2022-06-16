@@ -36,6 +36,18 @@ to_func = {
   
 }
 
+st.markdown(
+    f'''
+        <style>
+            .sidebar .sidebar-content {{
+                width: 500px;
+            }}
+        </style>
+    ''',
+    unsafe_allow_html=True
+)
+
+
 _ = installff()
 with st.sidebar:
   demo_name = st.selectbox("Applications", to_func.keys())
