@@ -26,7 +26,7 @@ def hko_table_csv(url):
         cols = [ele.text.strip() for ele in cols]
         data.append([ele for ele in cols if ele]) # Get rid of empty values
 
-    driver.close() # closing the webdriver
+    #driver.close() # closing the webdriver
     return data
 
 #@st.experimental_singleton
