@@ -88,7 +88,8 @@ def daily_weather():
     p_bar.progress(progress)
 
   dfc["Day"]=dfc.index.strftime('%Y-%m-%d')
+  dfc=dfc[ds:de]
   dfc = dfc.rename({"Day": "Record Date"}, axis='columns')
   AgGrid(dfc, height=300,fit_columns_on_grid_load=True)
-  fig = px.line(dfc)
+  fig = px.line(dfc.iloc[:, 1:])
   st.plotly_chart(fig)
