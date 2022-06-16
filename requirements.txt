@@ -3,5 +3,4 @@ selenium
 seleniumbase
 bs4
 streamlit-aggrid
-plotly
 matplotlib
