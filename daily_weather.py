@@ -95,7 +95,7 @@ def daily_weather():
   AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
   
   fig = px.line(chartdata)
-  fig.update_layout(autotypenumbers='convert types')
+  fig.update_layout(autotypenumbers='convert types', width=1500, height=1000)
   st.plotly_chart(fig)
 
 def isnumber(x):
