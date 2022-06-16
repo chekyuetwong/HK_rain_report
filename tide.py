@@ -31,7 +31,7 @@ def hko_table_csv(url):
 
 @st.experimental_singleton
 def tide_data(station):
-  station=str(station)
+  #station=str(station)
   try: 
     URL="https://www.hko.gov.hk/en/tide/marine/realtide.htm?s="+station+"&t=TABLE"
     print("Updated data retrieved from: ", URL)
@@ -50,7 +50,7 @@ def tide_data(station):
     return df1
 
   except:
-    st.warning("Error encountered. The plot for "+station+" was unsuccessful.")
+    st.sidebar.warning("Error encountered. The plot for "+station+" was unsuccessful.")
 
 
 
