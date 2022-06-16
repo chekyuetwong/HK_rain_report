@@ -46,11 +46,11 @@ def tide_data(station):
 
     df1["Measured"] = pd.to_numeric(df1["Measured"], errors='coerce')
     df1["Predicted"]=pd.to_numeric(df1["Predicted"], errors='coerce')
-    #print(df1)
+    st.sidebar.success("Data Retrieval for "+station+" was successful.")
     return df1
 
   except:
-    print("Error encountered. The plot for "+station+" was unsuccessful.")
+    st.warning("Error encountered. The plot for "+station+" was unsuccessful.")
 
 
 
@@ -74,9 +74,7 @@ def tide():
   ax = fig.add_subplot(1,1,1)
 
   if Quarry_Bay:
-    st.write("read QUB")
     QUB=tide_data("QUB")
-    st.write(QUB)
     plt.plot(QUB.index, QUB["Measured"], label="Quarry Bay")
 
   if Tai_Po_Kau:
