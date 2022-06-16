@@ -27,6 +27,7 @@ def tide2():
     with a2:
       End_Date = st.date_input("End Date")
       End_Time = st.time_input('End Time',  default_time2)
+    success = st.empty
 
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)
@@ -48,7 +49,7 @@ def tide2():
   for t in timestamp:
     read_url=url+t
     df = pd.read_csv(url+t)
-    st.sidebar.success("%s was read!"%(url+t))
+    success.sidebar.success("%s was read!"%(url+t))
     #AgGrid(df, height=300,fit_columns_on_grid_load=True)
     df=df.set_index("Tide Station")
     combined_time=df["Date"][0]+" "+df["Time"][0]
