@@ -31,10 +31,12 @@ def tide2():
       End_Time = st.time_input('End Time',  default_time2)
     
 
+  
   ds=datetime.combine(Start_Date,Start_Time)
   de=datetime.combine(End_Date,End_Time)
 
-  ind=pd.date_range(ds, de, freq='10min')
+  inv = st.slider("SamplingInterval", min_value=10, max_value=60, value = 10, step = 10)
+  ind=pd.date_range(ds, de, freq=str(inv)+'min')
   timestamp=[a.strftime('%Y%m%d-%H%M') for a in ind]
 
   url="https://api.data.gov.hk/v1/historical-archive/get-file?url=https%3A%2F%2Fdata.weather.gov.hk%2FweatherAPI%2Fhko_data%2Ftide%2FALL_en.csv&time="#20220613-0000
