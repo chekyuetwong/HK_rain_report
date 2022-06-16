@@ -54,8 +54,8 @@ def tide2():
     df=df[df.applymap(isnumber)]
     data=df["Height(m)"].to_list()
     read_time=datetime.strptime(combined_time, "%Y-%m-%d %H:%M")
-    st.write(data)
     tide_df.loc[read_time,:]=data
+    st.write(tide_df)
     st.sidebar.success("%s was read!"%(url+t))
     i+=1
     progress=i/len(timestamp)
