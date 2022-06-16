@@ -1,8 +1,5 @@
-altair
-pandas
 streamlit
 selenium
 seleniumbase
 bs4
-matplotlib
 streamlit-aggrid
