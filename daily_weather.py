@@ -61,7 +61,7 @@ def daily_weather():
   for i in ind:
     year = i.year
     month = i.month
-    out = hko_table_csv("https://www.hko.gov.hk/en/cis/dailyExtract.htm?y=%04d&m=%02d"%(year, month))
+    out = hko_daily_table("https://www.hko.gov.hk/en/cis/dailyExtract.htm?y=%04d&m=%02d"%(year, month))
     df=pd.DataFrame(out[3:])
     df.columns=all_col[0:df.shape[1]]
 
