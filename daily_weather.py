@@ -88,4 +88,4 @@ def daily_weather():
   dfc=dfc.drop(["Day"], axis=1)
   df_out = dfc[ds:de]
   df_out.index = df_out.index.strftime('%Y-%m-%d')
-  st.write(df_out) 
+  st.dataframe(df_out) 
