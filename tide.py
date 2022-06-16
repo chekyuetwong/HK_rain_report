@@ -15,7 +15,7 @@ import matplotlib.dates as mdates
 @st.experimental_singleton
 def hko_table_csv(url):
     driver.get(url)
-    time.sleep(5)
+    time.sleep(10)
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
     mainc = soup.find(id='mainContent')
