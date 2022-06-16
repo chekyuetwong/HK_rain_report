@@ -51,7 +51,7 @@ def tide_data(station):
     return df1
 
   #except:
-  #  st.sidebar.warning("Error encountered. The plot for "+station+" was unsuccessful.")
+  #  st.sidebar.warning("Error encountered. Data Retrieval for "+station+" was unsuccessful.")
 
 
 
