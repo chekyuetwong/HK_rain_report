@@ -55,9 +55,8 @@ def daily_weather():
 
   all_col = ["Day", "Mean Pressure (hPa)", "Absolute Daily Max (deg. C)", "Mean (deg. C)", "Absolute Daily Min (deg. C)", "Mean Dew Point (deg. C)", "Mean Relative Humidity (%)", "Mean Amount", "Total Rainfall (mm)", "Total Bright Sunshine (hours)", "Prevailing Wind Direction (degrees)", "Mean Wind Speed (km/h)"] 
   dfc=pd.DataFrame(columns=all_col)
-  ind=pd.date_range(ds, de, freq='1M', closed="right") #replace closed by (inclusive="both") when using pandas 1.4.0 or later
-  if ind.shape[0]==0:
-    pd.concat(ind, [de])
+  ind=pd.date_range(ds, de+ pd.DateOffset(months=1), freq='1M', closed="right") #replace closed by (inclusive="both") when using pandas 1.4.0 or later
+
 
   
   st.write(ind)
