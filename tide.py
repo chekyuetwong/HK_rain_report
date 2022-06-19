@@ -75,10 +75,10 @@ def tide():
   df.columns="Quarry Bay "+df.columns
   df2 = tide_data("TPK")
   df2.columns="Tai Po Kau "+df.columns
-  st.write(df)
-  st.write(df2)
+  #st.write(df)
+  #st.write(df2)
   df=pd.concat([df, df2], axis=1, join="outer")
-  st.write(df)
+  #st.write(df)
   #df.loc[:,"Tsim Bei Tsui (Measured)", "Tsim Bei Tsui (Actual)"]=tide_data("TBT")
   #df.loc[:,"Tai O (Measured)", "Tai O (Actual)"]=tide_data("TAO")
   #QUB=tide_data("QUB")
@@ -119,8 +119,8 @@ def tide():
   #filename = Title+".png"
   #plt.savefig(filename, bbox_inches='tight')
   #plt.show()
-  #fig = px.line(df)
-  #fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
-  #st.plotly_chart(fig)
-  st.write(df)
+  fig = px.line(df)
+  fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
+  st.plotly_chart(fig)
+  #st.write(df)
   st.write("Data Source: https://www.hko.gov.hk/en/tide/marine/realtide.htm")
