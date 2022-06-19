@@ -64,5 +64,6 @@ try:
 
 except:
   st.title("Error Encountered")
+  st.write("Setup = "+str(setup))
   if st.button('Try Resolving by resetting the Web Driver'):
     setup=True
