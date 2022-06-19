@@ -70,10 +70,15 @@ def tide():
     if st.button('Refresh Data from HKO'):
       tide_data.clear()
       hko_table_csv.clear()
-  QUB=tide_data("QUB")
-  TPK=tide_data("TPK")
-  TBT=tide_data("TBT")
-  TAO=tide_data("TAO")
+  df=pd.DataFrame()
+  df.loc[:,"Quarry Bay (Measured)", "Quarry Bay (Actual)"]=tide_data("QUB")
+  df.loc[:,"Tai Po Kau (Measured)", "Tai Po Kau (Actual)"]=tide_data("TPK")
+  df.loc[:,"Tsim Bei Tsui (Measured)", "Tsim Bei Tsui (Actual)"]=tide_data("TBT")
+  df.loc[:,"Tai O (Measured)", "Tai O (Actual)"]=tide_data("TAO")
+  #QUB=tide_data("QUB")
+  #TPK=tide_data("TPK")
+  #TBT=tide_data("TBT")
+  #TAO=tide_data("TAO")
 
 
 
