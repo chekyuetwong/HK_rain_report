@@ -113,7 +113,8 @@ def tide():
   #filename = Title+".png"
   #plt.savefig(filename, bbox_inches='tight')
   #plt.show()
-  fig = px.line(df)
-  fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
-  st.plotly_chart(fig)
+  #fig = px.line(df)
+  #fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
+  #st.plotly_chart(fig)
+  st.write(df)
   st.write("Data Source: https://www.hko.gov.hk/en/tide/marine/realtide.htm")
