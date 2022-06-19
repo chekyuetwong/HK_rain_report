@@ -5,7 +5,7 @@ from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
 driver = webdriver.Firefox(options=opts)
-
+import plotly.express as px
 import matplotlib.pyplot as plt
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -108,7 +108,7 @@ def tide():
   #filename = Title+".png"
   #plt.savefig(filename, bbox_inches='tight')
   #plt.show()
-  fig = px.line(QUB)
+  fig = px.line(x=QUB.index, y=[QUB, TPK, TBT, TAO])
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
   st.write("Data Source: https://www.hko.gov.hk/en/tide/marine/realtide.htm")
