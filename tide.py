@@ -70,14 +70,18 @@ def tide():
     if st.button('Refresh Data from HKO'):
       tide_data.clear()
       hko_table_csv.clear()
-  df=pd.DataFrame()
-  df=tide_data("QUB")
-  df.columns="Quarry Bay "+df.columns
+  
+  df1=tide_data("QUB")
+  df1.columns="Quarry Bay "+df1.columns
   df2 = tide_data("TPK")
-  df2.columns="Tai Po Kau "+df.columns
+  df2.columns="Tai Po Kau "+df2.columns
+  df3 = tide_data("TBT")
+  df3.columns="Tsim Bei Tsui "+df3.columns
+  df4 = tide_data("TAO")
+  df4.columns="Tai O "+df4.columns
   #st.write(df)
   #st.write(df2)
-  df=pd.concat([df, df2], axis=1, join="outer")
+  df=pd.concat([df1, df2, df3, df4], axis=1, join="outer")
   #st.write(df)
   #df.loc[:,"Tsim Bei Tsui (Measured)", "Tsim Bei Tsui (Actual)"]=tide_data("TBT")
   #df.loc[:,"Tai O (Measured)", "Tai O (Actual)"]=tide_data("TAO")
