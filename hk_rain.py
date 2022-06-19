@@ -29,12 +29,12 @@ def installff():
 
 try:
   setup = False
-  if setup == True:
-    _ = installff()
-    st.title("Web Driver Reset Completed")
-    if st.button('Press to Restart'):
-      setup=False
-  else:
+  #if setup == True:
+    #_ = installff()
+    #st.title("Web Driver Reset Completed")
+    #if st.button('Press to Restart'):
+    #  setup=False
+  if True:#else:
     from tide import tide
     from tide2 import tide2
     from warning import warning
@@ -67,4 +67,5 @@ except:
   st.title("Error Encountered")
   st.write("Setup = "+str(setup))
   if st.button('Try Resolving by resetting the Web Driver'):
-    setup = True
+    _ = installff()
+    setup=True
