@@ -11,7 +11,7 @@ import time
 import matplotlib.dates as mdates
 from streamlit import caching
 st.set_page_config(layout="wide")
-setup = False
+
 
 def home_page():
   st.markdown("""# HK Weather Summary Web App
@@ -28,6 +28,7 @@ def installff():
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
 try:
+  setup = False
   if setup == True:
     _ = installff()
     st.title("Web Driver Reset Completed")
@@ -66,4 +67,4 @@ except:
   st.title("Error Encountered")
   st.write("Setup = "+str(setup))
   if st.button('Try Resolving by resetting the Web Driver'):
-    setup=True
+    setup = True
