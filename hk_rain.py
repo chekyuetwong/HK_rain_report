@@ -27,7 +27,7 @@ def installff():
   os.system('sbase install geckodriver')
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
-Try:
+try:
   if setup == True:
     to_func = {"Home": home_page,}
   else:
