@@ -123,7 +123,11 @@ def tide():
   #filename = Title+".png"
   #plt.savefig(filename, bbox_inches='tight')
   #plt.show()
-  fig = px.line(df)
+  fig = px.line(df, labels={
+                     "variable": "Tide Station",
+                     "index": "Time",
+                     "value": "Measured Tide Level (mCD)",
+                 }))
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
   #st.write(df)
