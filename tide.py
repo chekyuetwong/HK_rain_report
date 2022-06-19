@@ -126,7 +126,7 @@ def tide():
   fig = px.line(df, labels={
                      "variable": "Tide Station",
                      "index": "Time",
-                     "value": "Measured Tide Level (mCD)",
+                     "value": "Measured / Predicted Tide Level (mCD)",
                  })
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
