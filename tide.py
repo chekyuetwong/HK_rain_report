@@ -127,7 +127,7 @@ def tide():
                      "variable": "Tide Station",
                      "index": "Time",
                      "value": "Measured Tide Level (mCD)",
-                 }))
+                 })
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
   #st.write(df)
