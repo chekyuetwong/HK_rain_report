@@ -27,37 +27,39 @@ def installff():
   os.system('sbase install geckodriver')
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
-_ = installff()
-
-if setup == True:
-  to_func = {"Home": home_page,}
-else:
-  from tide import tide
-  from tide2 import tide2
-  from warning import warning
-  to_func = {
-    "Home": home_page,
-    "Tide (Nearest 24 Hours)": tide,
-    "Tide (Since Jul 2020)": tide2,
-    "Warning Timeline":warning
-  }
-
-st.markdown(
-    """
-    <style>
-    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
-        width: 500px;
+Try:
+  if setup == True:
+    to_func = {"Home": home_page,}
+  else:
+    from tide import tide
+    from tide2 import tide2
+    from warning import warning
+    to_func = {
+      "Home": home_page,
+      "Tide (Nearest 24 Hours)": tide,
+      "Tide (Since Jul 2020)": tide2,
+      "Warning Timeline":warning
     }
-    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
-        width: 500px;
-        margin-left: -500px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,)
 
+  st.markdown(
+      """
+      <style>
+      [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+          width: 500px;
+      }
+      [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+          width: 500px;
+          margin-left: -500px;
+      }
+      </style>
+      """,
+      unsafe_allow_html=True,)
 
-_ = installff()
-with st.sidebar:
-  demo_name = st.selectbox("Applications", to_func.keys())
-to_func[demo_name]()
+  _ = installff()
+  with st.sidebar:
+    demo_name = st.selectbox("Applications", to_func.keys())
+  to_func[demo_name]()
+
+except:
+  st.title("Error Encountered")
+  if st.button('Try Resolving by resetting the Web Driver'):
