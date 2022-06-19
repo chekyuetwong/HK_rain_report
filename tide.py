@@ -72,57 +72,14 @@ def tide():
       hko_table_csv.clear()
   
   df1=tide_data("QUB")
-  df1.columns="Quarry Bay "+df1.columns
+  df1.columns="Quarry Bay ("+df1.columns+")"
   df2 = tide_data("TPK")
-  df2.columns="Tai Po Kau "+df2.columns
+  df2.columns="Tai Po Kau ("+df2.columns+")"
   df3 = tide_data("TBT")
-  df3.columns="Tsim Bei Tsui "+df3.columns
+  df3.columns="Tsim Bei Tsui ("+df3.columns+")"
   df4 = tide_data("TAO")
-  df4.columns="Tai O "+df4.columns
-  #st.write(df)
-  #st.write(df2)
+  df4.columns="Tai O ("+df4.columns+")"
   df=pd.concat([df1, df2, df3, df4], axis=1, join="outer")
-  #st.write(df)
-  #df.loc[:,"Tsim Bei Tsui (Measured)", "Tsim Bei Tsui (Actual)"]=tide_data("TBT")
-  #df.loc[:,"Tai O (Measured)", "Tai O (Actual)"]=tide_data("TAO")
-  #QUB=tide_data("QUB")
-  #TPK=tide_data("TPK")
-  #TBT=tide_data("TBT")
-  #TAO=tide_data("TAO")
-
-
-
-  #fig = plt.figure(figsize=[15,5])
-  #ax = fig.add_subplot(1,1,1)
-
-  #if Quarry_Bay:
-  #  QUB=tide_data("QUB")
-  #  plt.plot(QUB.index, QUB["Measured"], label="Quarry Bay")
-
-  #if Tai_Po_Kau:
-  #  TPK=tide_data("TPK")
-  #  plt.plot(TPK.index, TPK["Measured"], label="Tai Po Kau")
-
-  #if Tsim_Bei_Tsui:
-  #  TBT=tide_data("TBT")
-  #  plt.plot(TBT.index, TBT["Measured"], label="Tsim Bei Tsui")
-  #if Tai_O:
-  #  TAO=tide_data("TAO")
-  #  plt.plot(TAO.index, TAO["Measured"], label="Tai O")
-
-  #hours = mdates.HourLocator(interval = 3)
-  #h_fmt = mdates.DateFormatter('%Y-%m-%d %H:%M')
-  #ax.set_title(Title, size=20)
-  #ax.xaxis.set_major_locator(hours)
-  #ax.xaxis.set_major_formatter(h_fmt)
-  #ax.grid()
-  #ax.set_ylabel("Tide Level (mCD)")
-  #fig.autofmt_xdate()
-  #plt.legend()
-  #timestamp=max(QUB.index).strftime("%Y-%m-%d_%H-%M")
-  #filename = Title+".png"
-  #plt.savefig(filename, bbox_inches='tight')
-  #plt.show()
   fig = px.line(df, labels={
                      "variable": "Tide Station",
                      "index": "Time",
