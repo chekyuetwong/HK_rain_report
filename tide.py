@@ -72,7 +72,9 @@ def tide():
       hko_table_csv.clear()
   df=pd.DataFrame()
   df=tide_data("QUB")
+  df.columns="Quarry Bay "+df.columns
   df2 = tide_data("TPK")
+  df2.columns="Tai Po Kau "+df.columns
   st.write(df)
   st.write(df2)
   df=pd.concat([df, df2], axis=1, join="outer")
