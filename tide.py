@@ -72,7 +72,7 @@ def tide():
       hko_table_csv.clear()
   df=pd.DataFrame()
   df=tide_data("QUB")
-  #df.loc[:,"Tai Po Kau (Measured)", "Tai Po Kau (Actual)"]=tide_data("TPK")
+  df=pd.concat([df, tide_data("TPK")], axis=1)
   #df.loc[:,"Tsim Bei Tsui (Measured)", "Tsim Bei Tsui (Actual)"]=tide_data("TBT")
   #df.loc[:,"Tai O (Measured)", "Tai O (Actual)"]=tide_data("TAO")
   #QUB=tide_data("QUB")
