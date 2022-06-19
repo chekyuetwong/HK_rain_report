@@ -29,21 +29,15 @@ def installff():
 
 try:
   setup = False
-  #if setup == True:
-    #_ = installff()
-    #st.title("Web Driver Reset Completed")
-    #if st.button('Press to Restart'):
-    #  setup=False
-  if True:#else:
-    from tide import tide
-    from tide2 import tide2
-    from warning import warning
-    to_func = {
-      "Home": home_page,
-      "Tide (Nearest 24 Hours)": tide,
-      "Tide (Since Jul 2020)": tide2,
-      "Warning Timeline":warning
-    }
+  from tide import tide
+  from tide2 import tide2
+  from warning import warning
+  to_func = {
+    "Home": home_page,
+    "Tide (Nearest 24 Hours)": tide,
+    "Tide (Since Jul 2020)": tide2,
+    "Warning Timeline":warning
+  }
 
   st.markdown(
         """
@@ -58,9 +52,9 @@ try:
         </style>
         """,unsafe_allow_html=True,)
 
-  _ = installff()
   with st.sidebar:
     demo_name = st.selectbox("Applications", to_func.keys())
+  
   to_func[demo_name]()
 
 except:
