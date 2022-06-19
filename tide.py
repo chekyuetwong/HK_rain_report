@@ -108,7 +108,8 @@ def tide():
   #filename = Title+".png"
   #plt.savefig(filename, bbox_inches='tight')
   #plt.show()
-  fig = px.line([QUB, TPK, TBT, TAO])
+  fig = px.line(QUB)
+  fig = px.line(TPK)
   
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
