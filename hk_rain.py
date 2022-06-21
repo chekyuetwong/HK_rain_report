@@ -21,11 +21,13 @@ def home_page():
 
   """)
 
+@st.cache
 def installff():
   os.system('sbase install geckodriver')
-  os.system('ln -s /home/appuser/venv/lib/python3.9/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
+  os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
 try:
+  setup = False
   from tide import tide
   from tide2 import tide2
   from warning import warning
@@ -57,5 +59,7 @@ try:
 except Exception as e:
   st.title("Error Encountered")
   st.write(e)
+  st.write("Setup = "+str(setup))
   if st.button('Try Resolving by resetting the Web Driver'):
     installff()
+    setup=True
