@@ -61,5 +61,6 @@ except Exception as e:
   st.write(e)
   st.write("Setup = "+str(setup))
   if st.button('Try Resolving by resetting the Web Driver'):
-    _ = installff()
+    installff.clear()
+    installff()
     setup=True
