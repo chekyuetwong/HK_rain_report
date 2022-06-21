@@ -59,5 +59,4 @@ except Exception as e:
   st.title("Error Encountered")
   st.write(e)
   if st.button('Try Resolving by resetting the Web Driver'):
-    installff.clear()
     installff()
