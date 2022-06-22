@@ -3,6 +3,7 @@ def out_max(txt):
 
 def region_rain():
     from datetime import time as tm
+    from datetime import datetime
     import streamlit as st
     default_time1 = tm(0,0)
     default_time2 = tm(23,59)
