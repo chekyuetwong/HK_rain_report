@@ -46,16 +46,16 @@ def region_rain():
     de=datetime.combine(End_Date,End_Time)
 
     if ds.minute > 45:
-        ds=ds.replace(minute=45)
+        ds=ds.replace(minute=0)
     elif ds.minute<45:
-        ds=ds.replace(minute=45)
+        ds=ds.replace(minute=0)
         ds = ds - timedelta(hours=1)
     
     if de.minute > 45:
-        de=de.replace(minute=45)
+        de=de.replace(minute=0)
         de = de + timedelta(hours=1)
     elif de.minute<45:
-        de=de.replace(minute=45)    
+        de=de.replace(minute=0)    
 
     date1=ds
     date2=de
@@ -105,7 +105,7 @@ def region_rain():
         
 
         hourly_df=pd.DataFrame(hourly[2:], columns=['Region', 'Rainfall'])
-        hourly_df["Time from"]= run - timedelta(minutes=15)
+        #hourly_df["Time from"]= run - timedelta(minutes=15)
         hourly_df = hourly_df.set_index("Time from")
         from_web=pd.concat([from_web, hourly_df])
         if len(rows)<=1:
@@ -119,7 +119,7 @@ def region_rain():
     district_max_h=district_max_h.applymap(out_max, na_action='ignore')
     filename = "max hr regional rain "+date1.strftime("%m%d-%H")+" to "+date2.strftime("%m%d-%H")+".csv"
 
-    new_date_range = pd.date_range(start=date1-timedelta(minutes=15), end=date2-timedelta(minutes=15), freq='H')
+    new_date_range = pd.date_range(start=date1, end=date2, freq='H')
     district_max_h = pd.DataFrame(district_max_h.copy(), index=new_date_range)
     district_max_h.insert(0, 'Time to', district_max_h.index+timedelta(minutes=60))
     district_max_h.index.name = 'Time from'
