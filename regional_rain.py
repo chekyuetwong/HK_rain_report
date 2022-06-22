@@ -20,7 +20,7 @@ def region_rain():
             with a2:
                 End_Date = st.date_input("End Date")
                 End_Time = st.time_input('End Time')
-        st.form_submit_button("Update")
+            st.form_submit_button("Submit")
 
     ds=datetime.combine(Start_Date,Start_Time)
     de=datetime.combine(End_Date,End_Time)
