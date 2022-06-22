@@ -42,7 +42,8 @@ def region_rain():
     ds=datetime.combine(Start_Date,Start_Time)+timedelta(minutes=60)
     de=datetime.combine(End_Date,End_Time)
 
-    
+    date1=ds
+    date2=de
 
     #HH1 = Start_Time.hour
     #HH2 = End_Time.hour
