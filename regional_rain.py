@@ -2,8 +2,25 @@ def out_max(txt):
     return [int(s) for s in txt.split() if s.isdigit()][-1]
 
 def region_rain():
+    import time
+    import sys
+    from selenium.webdriver import FirefoxOptions
+    opts = FirefoxOptions()
+    opts.add_argument("--headless")
+    driver = webdriver.Firefox(options=opts)
     from datetime import time as tm
+    import pandas as pd
+    import numpy as np
+    import time
+    from bs4 import BeautifulSoup
+    from selenium import webdriver
+    from selenium.webdriver.support.ui import Select
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.common.by import By
+    from google.colab import files
     from datetime import datetime
+    from datetime import datetime
+    from datetime import timedelta
     import streamlit as st
     default_time1 = tm(0,0)
     default_time2 = tm(23,59)
@@ -26,15 +43,7 @@ def region_rain():
     ds=datetime.combine(Start_Date,Start_Time)
     de=datetime.combine(End_Date,End_Time)
 
-    import time
     
-    from datetime import datetime
-    from datetime import timedelta
-    import sys
-    from selenium.webdriver import FirefoxOptions
-    opts = FirefoxOptions()
-    opts.add_argument("--headless")
-    driver = webdriver.Firefox(options=opts)
 
     HH1 = (Start_Time-pd.DateOffset(minutes=15)).hour
     HH2 = End_Time.hour
@@ -42,15 +51,7 @@ def region_rain():
     date2 = datetime.strptime(End_Date+"-"+str(HH2), "%Y-%m-%d-%H")
     date1+= timedelta(minutes=60)
 
-    import pandas as pd
-    import numpy as np
-    import time
-    from bs4 import BeautifulSoup
-    from selenium import webdriver
-    from selenium.webdriver.support.ui import Select
-    from selenium.webdriver.common.keys import Keys
-    from selenium.webdriver.common.by import By
-    from google.colab import files
+    
 
     domain = pd.date_range(start=date1, end=date2, freq='H')
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
