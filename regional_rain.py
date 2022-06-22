@@ -2,6 +2,7 @@ def out_max(txt):
     return [int(s) for s in txt.split() if s.isdigit()][-1]
 
 def region_rain():
+    from datetime import time as tm
     default_time1 = tm(0,0)
     default_time2 = tm(23,59)
     
@@ -24,7 +25,7 @@ def region_rain():
     de=datetime.combine(End_Date,End_Time)
 
     import time
-    from datetime import time as tm
+    
     from datetime import datetime
     from datetime import timedelta
     import sys
