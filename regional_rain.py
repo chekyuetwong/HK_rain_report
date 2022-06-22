@@ -45,12 +45,6 @@ def region_rain():
     date1=ds
     date2=de
 
-    #HH1 = Start_Time.hour
-    #HH2 = End_Time.hour
-    #date1 = datetime.strptime(Start_Date+"-"+str(HH1), "%Y-%m-%d-%H")
-    #date2 = datetime.strptime(End_Date+"-"+str(HH2), "%Y-%m-%d-%H")
-    #date1+= timedelta(minutes=60)
-
     domain = pd.date_range(start=ds, end=de, freq='H')
     st.write(domain)
 
