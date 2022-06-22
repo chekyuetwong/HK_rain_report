@@ -42,20 +42,20 @@ def region_rain():
             st.form_submit_button("Submit")
         status=st.empty()
 
-    ds=datetime.combine(Start_Date,Start_Time)+timedelta(minutes=15)
+    ds=datetime.combine(Start_Date,Start_Time)
     de=datetime.combine(End_Date,End_Time)
 
     if ds.minute > 45:
-        ds.replace(minute=45)
+        ds=ds.replace(minute=45)
     elif ds.minute<45:
-        ds.replace(minute=45)
+        ds=ds.replace(minute=45)
         ds = ds - timedelta(hours=1)
     
     if de.minute > 45:
-        ds.replace(minute=45)
+        de=de.replace(minute=45)
         de = de + timedelta(hours=1)
     elif de.minute<45:
-        de.replace(minute=45)    
+        de=de.replace(minute=45)    
 
     date1=ds
     date2=de
