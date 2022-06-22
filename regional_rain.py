@@ -122,4 +122,3 @@ def region_rain():
     district_max_h.to_csv(filename)
     #print("File is ready for download: ", filename)
     st.download_button('Download CSV', filename)
-"""
