@@ -38,6 +38,7 @@ def region_rain():
                 End_Date = st.date_input("End Date")
                 End_Time = st.time_input('End Time')
             st.form_submit_button("Submit")
+        status=st.empty()
 
     ds=datetime.combine(Start_Date,Start_Time)+timedelta(minutes=15)
     de=datetime.combine(End_Date,End_Time)
@@ -57,7 +58,7 @@ def region_rain():
         h = f'{run.hour:02d}'
         m = f'{run.month:02d}'
         y = f'{run.year:02d}'
-        st.sidebar.sucess("Currently reading: ",run.strftime("%Y%m%d-%H"))
+        status.success("Currently reading: ",run.strftime("%Y%m%d-%H"))
 
 
         hourly_url = "https://www.hko.gov.hk/en/wxinfo/rainfall/rf_record.shtml"
@@ -94,7 +95,7 @@ def region_rain():
         hourly_df = hourly_df.set_index("Time from")
         from_web=pd.concat([from_web, hourly_df])
         if len(rows)<=1:
-            print("(No recorded rainfall for", run.strftime("%Y%m%d-%H"), ")")
+            status.success("(No recorded rainfall for", run.strftime("%Y%m%d-%H"), ")")
 
         district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
 
