@@ -53,11 +53,11 @@ def region_rain():
     from_web=pd.DataFrame()
 
     for run in domain:
-    d = f'{run.day:02d}'
-    h = f'{run.hour:02d}'
-    m = f'{run.month:02d}'
-    y = f'{run.year:02d}'
-    print("Currently reading: ",run.strftime("%Y%m%d-%H"))
+        d = f'{run.day:02d}'
+        h = f'{run.hour:02d}'
+        m = f'{run.month:02d}'
+        y = f'{run.year:02d}'
+        print("Currently reading: ",run.strftime("%Y%m%d-%H"))
 
     
     hourly_url = "https://www.hko.gov.hk/en/wxinfo/rainfall/rf_record.shtml"
@@ -99,7 +99,7 @@ def region_rain():
     district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
 
     for i in district:
-    district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
+        district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
 
     district_max_h=district_max_h.applymap(out_max, na_action='ignore')
     filename = "max hr regional rain "+date1.strftime("%m%d-%H")+" to "+date2.strftime("%m%d-%H")+".csv"
