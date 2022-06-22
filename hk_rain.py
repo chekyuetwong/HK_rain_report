@@ -34,8 +34,8 @@ try:
     "Home": home_page,
     "Tide (Nearest 24 Hours)": tide,
     "Tide (Since Jul 2020)": tide2,
-    "Warning Timeline":warning
-    "Regional Rainfall":region_rain
+    "Warning Timeline":warning,
+    "Regional Rainfall":region_rain,
   }
 
   st.markdown(
