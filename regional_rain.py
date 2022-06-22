@@ -24,6 +24,7 @@ def region_rain():
     de=datetime.combine(End_Date,End_Time)
 
     import time
+    from datetime import time as tm
     from datetime import datetime
     from datetime import timedelta
     import sys
