@@ -54,7 +54,7 @@ def region_rain():
     domain = pd.date_range(start=ds, end=de, freq='H')
     st.write(domain)
 
-"""
+
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
     from_web=pd.DataFrame()
 
@@ -65,44 +65,44 @@ def region_rain():
         y = f'{run.year:02d}'
         st.sidebar.sucess("Currently reading: ",run.strftime("%Y%m%d-%H"))
 
-    
-    hourly_url = "https://www.hko.gov.hk/en/wxinfo/rainfall/rf_record.shtml"
-    # initiating the webdriver. Parameter includes the path of the webdriver.
-    #driver = webdriver.Chrome(r'C:\\chromedriver\\chromedriver.exe')
-    driver.get(hourly_url)
-    time.sleep(1)
 
-    ddelement= Select(driver.find_element(By.ID, value='Selday'))
-    ddelement.select_by_value(d)
-    ddelement= Select(driver.find_element(By.ID, value='Selmonth'))
-    ddelement.select_by_value(m)
-    ddelement= Select(driver.find_element(By.ID, value='Selhour'))
-    ddelement.select_by_value(h)
-    driver.find_element(By.XPATH, "//input[@type='submit']").click()
+        hourly_url = "https://www.hko.gov.hk/en/wxinfo/rainfall/rf_record.shtml"
+        # initiating the webdriver. Parameter includes the path of the webdriver.
+        #driver = webdriver.Chrome(r'C:\\chromedriver\\chromedriver.exe')
+        driver.get(hourly_url)
+        time.sleep(1)
 
-    time.sleep(1)
-    html = driver.page_source
-    soup = BeautifulSoup(html, "html.parser")
+        ddelement= Select(driver.find_element(By.ID, value='Selday'))
+        ddelement.select_by_value(d)
+        ddelement= Select(driver.find_element(By.ID, value='Selmonth'))
+        ddelement.select_by_value(m)
+        ddelement= Select(driver.find_element(By.ID, value='Selhour'))
+        ddelement.select_by_value(h)
+        driver.find_element(By.XPATH, "//input[@type='submit']").click()
 
-    #soup
-    mainc = soup.find(id='rainfalldata')
-    rows = mainc.find_all('tr')
-    
-    hourly=[]
-    for row in rows:
-        cols = row.find_all('td')
-        cols = [ele.text.strip() for ele in cols]
-        hourly.append([ele for ele in cols if ele]) # Get rid of empty values
-    driver.close() # closing the webdriver
+        time.sleep(1)
+        html = driver.page_source
+        soup = BeautifulSoup(html, "html.parser")
 
-    hourly_df=pd.DataFrame(hourly[2:], columns=['Region', 'Rainfall'])
-    hourly_df["Time from"]= run - timedelta(minutes=15)
-    hourly_df = hourly_df.set_index("Time from")
-    from_web=pd.concat([from_web, hourly_df])
-    if len(rows)<=1:
-        print("(No recorded rainfall for", run.strftime("%Y%m%d-%H"), ")")
+        #soup
+        mainc = soup.find(id='rainfalldata')
+        rows = mainc.find_all('tr')
+        
+        hourly=[]
+        for row in rows:
+            cols = row.find_all('td')
+            cols = [ele.text.strip() for ele in cols]
+            hourly.append([ele for ele in cols if ele]) # Get rid of empty values
+        
 
-    district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
+        hourly_df=pd.DataFrame(hourly[2:], columns=['Region', 'Rainfall'])
+        hourly_df["Time from"]= run - timedelta(minutes=15)
+        hourly_df = hourly_df.set_index("Time from")
+        from_web=pd.concat([from_web, hourly_df])
+        if len(rows)<=1:
+            print("(No recorded rainfall for", run.strftime("%Y%m%d-%H"), ")")
+
+        district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
 
     for i in district:
         district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
