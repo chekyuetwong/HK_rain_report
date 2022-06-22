@@ -1,10 +1,8 @@
 def out_max(txt):
     return [int(s) for s in txt.split() if s.isdigit()][-1]
 
-@st.cache
 def convert_df(df):
    return df.to_csv().encode('utf-8')
-
 
 def region_rain():
     import time
