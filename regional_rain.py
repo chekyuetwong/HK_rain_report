@@ -3,6 +3,7 @@ def out_max(txt):
 
 def region_rain():
     from datetime import time as tm
+    import streamlit as st
     default_time1 = tm(0,0)
     default_time2 = tm(23,59)
     
@@ -34,7 +35,7 @@ def region_rain():
     opts.add_argument("--headless")
     driver = webdriver.Firefox(options=opts)
 
-    HH1 = Start_Time.hour
+    HH1 = (Start_Time-pd.DateOffset(minutes=15)).hour
     HH2 = End_Time.hour
     date1 = datetime.strptime(Start_Date+"-"+str(HH1), "%Y-%m-%d-%H")
     date2 = datetime.strptime(End_Date+"-"+str(HH2), "%Y-%m-%d-%H")
