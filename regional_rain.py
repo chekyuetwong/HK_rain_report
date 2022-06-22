@@ -36,10 +36,10 @@ def region_rain():
             a1, a2 = st.columns(2)
             with a1:
                 Start_Date = st.date_input("Start Date")
-                Start_Time = st.time_input('Start Time', default_time1)
+                Start_Time = st.time_input('Start Time', default_time1, key=["00:45", "01:45", "02:45", "03:45", "04:45", "05:45", "06:45", "07:45", "08:45", "09:45", "10:45", "11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45", "21:45", "22:45", "23:45"])
             with a2:
                 End_Date = st.date_input("End Date")
-                End_Time = st.time_input('End Time')
+                End_Time = st.time_input('End Time', key=["00:45", "01:45", "02:45", "03:45", "04:45", "05:45", "06:45", "07:45", "08:45", "09:45", "10:45", "11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45", "21:45", "22:45", "23:45"])
             st.form_submit_button("Submit")
         status=st.empty()
 
