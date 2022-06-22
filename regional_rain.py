@@ -52,6 +52,9 @@ def region_rain():
     #date1+= timedelta(minutes=60)
 
     domain = pd.date_range(start=ds, end=de, freq='H')
+    st.write(domain)
+
+"""
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
     from_web=pd.DataFrame()
 
@@ -119,3 +122,4 @@ def region_rain():
     district_max_h.to_csv(filename)
     #print("File is ready for download: ", filename)
     st.download_button('Download CSV', filename)
+"""
