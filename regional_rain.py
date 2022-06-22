@@ -1,6 +1,11 @@
 def out_max(txt):
     return [int(s) for s in txt.split() if s.isdigit()][-1]
 
+@st.cache
+def convert_df(df):
+   return df.to_csv().encode('utf-8')
+
+
 def region_rain():
     import time
     import sys
@@ -114,6 +119,5 @@ def region_rain():
     district_max_h.insert(1, 'Max District', district_max_h.iloc[:,2:].replace(0, np.nan).idxmax(axis=1))
     district_max_h.insert(1, 'Max Rainfall', district_max_h.iloc[:,3:].max(axis=1))
     st.write(district_max_h)
-    district_max_h.to_csv(filename)
-    #print("File is ready for download: ", filename)
-    st.download_button('Download CSV', filename)
+    csv = convert_df(district_max_h)
+    st.download_button("Press to Download", csv, "file.csv", "text/csv", key='download-csv')
