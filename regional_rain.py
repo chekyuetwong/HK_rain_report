@@ -129,4 +129,4 @@ def region_rain():
     district_max_h.insert(1, 'Max Rainfall', district_max_h.iloc[:,3:].max(axis=1))
     st.write(district_max_h)
     csv = convert_df(district_max_h)
-    st.download_button("Press to Download", csv, "file.csv", "text/csv", key='download-csv')
+    st.download_button("Press to Download", csv, filename, "text/csv", key='download-csv')
