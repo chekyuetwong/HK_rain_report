@@ -18,9 +18,7 @@ def region_rain():
     import time
     from bs4 import BeautifulSoup
     from selenium.webdriver.support.ui import Select
-    from selenium.webdriver.common.keys import Keys
     from selenium.webdriver.common.by import By
-    from datetime import datetime
     from datetime import datetime
     from datetime import timedelta
     import streamlit as st
@@ -62,6 +60,7 @@ def region_rain():
     date2=de
 
     domain = pd.date_range(start=ds, end=de, freq='H')
+    domain=domain[:-2]
     st.write(domain)
 
 
