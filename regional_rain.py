@@ -39,7 +39,7 @@ def region_rain():
                 End_Time = st.time_input('End Time')
             st.form_submit_button("Submit")
 
-    ds=datetime.combine(Start_Date,Start_Time)+timedelta(minutes=60)
+    ds=datetime.combine(Start_Date,Start_Time)+timedelta(minutes=15)
     de=datetime.combine(End_Date,End_Time)
 
     date1=ds
@@ -51,8 +51,6 @@ def region_rain():
     #date2 = datetime.strptime(End_Date+"-"+str(HH2), "%Y-%m-%d-%H")
     #date1+= timedelta(minutes=60)
 
-    
-
     domain = pd.date_range(start=ds, end=de, freq='H')
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
     from_web=pd.DataFrame()
@@ -62,7 +60,7 @@ def region_rain():
         h = f'{run.hour:02d}'
         m = f'{run.month:02d}'
         y = f'{run.year:02d}'
-        print("Currently reading: ",run.strftime("%Y%m%d-%H"))
+        st.sidebar.sucess("Currently reading: ",run.strftime("%Y%m%d-%H"))
 
     
     hourly_url = "https://www.hko.gov.hk/en/wxinfo/rainfall/rf_record.shtml"
