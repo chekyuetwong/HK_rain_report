@@ -40,6 +40,7 @@ def region_rain():
                 End_Date = st.date_input("End Date")
                 End_Time = st.time_input('End Time', default_time1)
             st.form_submit_button("Submit")
+        p_bar = st.sidebar.progress(0)
         status=st.empty()
 
     ds=datetime.combine(Start_Date,Start_Time)
@@ -67,6 +68,7 @@ def region_rain():
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
     from_web=pd.DataFrame()
 
+    i=0
     for run in domain:
         d = f'{run.day:02d}'
         h = f'{run.hour:02d}'
@@ -112,10 +114,14 @@ def region_rain():
             status.success("(No recorded rainfall for "+run.strftime("%Y%m%d-%H"))
 
         district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
+        i+=1
+        progress=i/len(domain)
+        p_bar.progress(progress)
 
     for i in district:
         district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
 
+    status.success("All downloading completed")
     district_max_h=district_max_h.applymap(out_max, na_action='ignore')
     filename = "max hr regional rain "+date1.strftime("%m%d-%H")+" to "+date2.strftime("%m%d-%H")+".csv"
 
@@ -129,4 +135,4 @@ def region_rain():
     district_max_h.insert(1, 'Max Rainfall', district_max_h.iloc[:,3:].max(axis=1))
     st.write(district_max_h)
     csv = convert_df(district_max_h)
-    st.download_button("Press to Download", csv, filename, "text/csv", key='download-csv')
+    st.download_button("Download CSV", csv, filename, "text/csv", key='download-csv')
