@@ -105,7 +105,7 @@ def region_rain():
         
 
         hourly_df=pd.DataFrame(hourly[2:], columns=['Region', 'Rainfall'])
-        #hourly_df["Time from"]= run - timedelta(minutes=15)
+        hourly_df["Time from"]= run # - timedelta(minutes=15)
         hourly_df = hourly_df.set_index("Time from")
         from_web=pd.concat([from_web, hourly_df])
         if len(rows)<=1:
