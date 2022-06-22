@@ -4,6 +4,7 @@ def out_max(txt):
 def region_rain():
     import time
     import sys
+    from selenium import webdriver
     from selenium.webdriver import FirefoxOptions
     opts = FirefoxOptions()
     opts.add_argument("--headless")
@@ -13,11 +14,9 @@ def region_rain():
     import numpy as np
     import time
     from bs4 import BeautifulSoup
-    from selenium import webdriver
     from selenium.webdriver.support.ui import Select
     from selenium.webdriver.common.keys import Keys
     from selenium.webdriver.common.by import By
-    from google.colab import files
     from datetime import datetime
     from datetime import datetime
     from datetime import timedelta
