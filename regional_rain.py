@@ -39,20 +39,20 @@ def region_rain():
                 End_Time = st.time_input('End Time')
             st.form_submit_button("Submit")
 
-    ds=datetime.combine(Start_Date,Start_Time)
+    ds=datetime.combine(Start_Date,Start_Time)+timedelta(minutes=60)
     de=datetime.combine(End_Date,End_Time)
 
     
 
-    HH1 = Start_Time.hour
-    HH2 = End_Time.hour
-    date1 = datetime.strptime(Start_Date+"-"+str(HH1), "%Y-%m-%d-%H")
-    date2 = datetime.strptime(End_Date+"-"+str(HH2), "%Y-%m-%d-%H")
-    date1+= timedelta(minutes=60)
+    #HH1 = Start_Time.hour
+    #HH2 = End_Time.hour
+    #date1 = datetime.strptime(Start_Date+"-"+str(HH1), "%Y-%m-%d-%H")
+    #date2 = datetime.strptime(End_Date+"-"+str(HH2), "%Y-%m-%d-%H")
+    #date1+= timedelta(minutes=60)
 
     
 
-    domain = pd.date_range(start=date1, end=date2, freq='H')
+    domain = pd.date_range(start=ds, end=de, freq='H')
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
     from_web=pd.DataFrame()
 
