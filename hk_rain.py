@@ -29,14 +29,12 @@ try:
   from tide import tide
   from tide2 import tide2
   from warning import warning
-  from regional_rain import region_rain
-  
+
   to_func = {
     "Home": home_page,
     "Tide (Nearest 24 Hours)": tide,
     "Tide (Since Jul 2020)": tide2,
     "Warning Timeline":warning,
-    "Regional Rainfall":region_rain,
   }
 
   st.markdown(
@@ -58,10 +56,8 @@ try:
   to_func[demo_name]()
 
 except Exception as e:
-  setup = False
   st.title("Error Encountered")
   st.write(e)
-  st.write("Setup = "+str(setup))
   if st.button('Try Resolving by resetting the Web Driver'):
     installff()
-    setup=True
+    st.experimental_rerun()
